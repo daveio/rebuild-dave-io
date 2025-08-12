@@ -126,7 +126,8 @@
     "ghcr.io/devcontainers-extra/features/cloudflared:1": {},
     "ghcr.io/devcontainers-extra/features/mise:1": {},
     "ghcr.io/devcontainers/features/git-lfs:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/trunk-io/devcontainer-feature/trunk:1": {}
   },
   "forwardPorts": [3000],
   // Or a Dockerfile or Compose file: https://containers.dev/guide/dockerfile
