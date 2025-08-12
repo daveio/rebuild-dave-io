@@ -1,25 +1,138 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+// https://aka.ms/devcontainer.json
 {
-  "name": "rebuild-dave-io",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
-  "features": {
-    "ghcr.io/devcontainers-extra/features/mise:1": {}
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "alimozdemir.vscode-nuxt-dx-tools",
+        "amazonwebservices.codewhisperer-for-command-line-companion",
+        "antfu.file-nesting",
+        "antfu.iconify",
+        "anthropic.claude-code",
+        "anysphere.remote-containers",
+        "anysphere.remote-ssh",
+        "anysphere.remote-wsl",
+        "beilunyang.cursor-rules",
+        "bennycode.sort-everything",
+        "benschac.linear-todo",
+        "bierner.markdown-mermaid",
+        "bradlc.vscode-tailwindcss",
+        "catppuccin.catppuccin-vsc-icons",
+        "catppuccin.catppuccin-vsc",
+        "chrislajoie.vscode-modelines",
+        "christian-kohler.npm-intellisense",
+        "chrmarti.regex",
+        "cloudflare.cloudflare-workers-bindings-extension",
+        "codereviewforgithubcopilot.github-copilot-code-review",
+        "ctf0.local-history-new",
+        "denoland.vscode-deno",
+        "dorianmassoulier.repomix-runner",
+        "dustypomerleau.rust-syntax",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "eltociear.kiro-chan",
+        "esbenp.prettier-vscode",
+        "esbenp.prettier-vscode",
+        "fill-labs.dependi",
+        "firefox-devtools.vscode-firefox-debug",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-complete-tag",
+        "formulahendry.auto-rename-tag",
+        "github.codespaces",
+        "GitHub.copilot",
+        "github.remotehub",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github",
+        "graphite.gti-vscode",
+        "gruntfuggly.todo-tree",
+        "hangxingliu.vscode-nginx-conf-hint",
+        "hverlin.mise-vscode",
+        "ivanarjona.cloudflaretunnel",
+        "janisdd.vscode-edit-csv",
+        "jscearcy.rust-doc-viewer",
+        "karizma.scoped-sort",
+        "lvdn.s3x-explorer",
+        "matthewpi.caddyfile-support",
+        "me-dutour-mathieu.vscode-github-actions",
+        "mechatroner.rainbow-csv",
+        "meritek.nuxt-intellisense",
+        "mermaidchart.vscode-mermaid-chart",
+        "meshintelligenttechnologiesinc.pieces-vscode",
+        "micnil.vscode-checkpoints",
+        "miguelsolorio.fluent-icons",
+        "mindaro-dev.file-downloader",
+        "mintlify.document",
+        "ms-azuretools.vscode-containers",
+        "ms-azuretools.vscode-docker",
+        "ms-edgedevtools.vscode-edge-devtools",
+        "ms-toolsai.datawrangler",
+        "ms-vscode-remote.remote-ssh-edit",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "ms-vscode.hexeditor",
+        "ms-vscode.js-debug-nightly",
+        "ms-vscode.live-server",
+        "ms-vscode.remote-explorer",
+        "ms-vscode.remote-repositories",
+        "ms-vscode.remote-server",
+        "ms-vscode.vscode-commander",
+        "ms-vscode.vscode-copilot-data-analysis",
+        "ms-vscode.vscode-copilot-vision",
+        "ms-vscode.vscode-speech",
+        "ms-vscode.vscode-typescript-next",
+        "ms-vscode.vscode-typescript-next",
+        "ms-vscode.vscode-websearchforcopilot",
+        "ms-vsliveshare.vsliveshare",
+        "ndonfris.fish-lsp",
+        "nuxtr.nuxt-vscode-extentions",
+        "nuxtr.nuxtr-vscode",
+        "pascalreitermann93.vscode-yaml-sort",
+        "pflannery.vscode-versionlens",
+        "pranaygp.vscode-css-peek",
+        "pshaddel.conventional-branch",
+        "redhat.vscode-extension-dashbuilder-editor",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "remcohaszing.schemastore",
+        "rgeraskin.mise",
+        "richie5um2.vscode-sort-json",
+        "robole.markdown-snippets",
+        "robole.marky-dynamic",
+        "robole.marky-edit",
+        "robole.marky-markdown",
+        "robole.marky-stats",
+        "rust-lang.rust-analyzer",
+        "shd101wyy.markdown-preview-enhanced",
+        "sourcery.sourcery",
+        "tamasfe.even-better-toml",
+        "trunk.io",
+        "usernamehw.errorlens",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "visualstudioexptteam.vscodeintellicode",
+        "vitest.explorer",
+        "vivaxy.vscode-conventional-commits",
+        "vue.volar",
+        "wayou.vscode-todo-highlight",
+        "willbot.tunnelfy",
+        "williamcallahan.flag-deprecated-files",
+        "yawarjamal.cf-d1",
+        "yzhang.markdown-all-in-one",
+        "zignd.html-css-class-completion"
+      ],
+      "settings": {
+        "editor.formatOnSave": true
+      }
+    }
   },
-
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
-
-  // Use 'postCreateCommand' to run commands after the container is created.
+  "features": {
+    "ghcr.io/devcontainers-extra/features/cloudflared:1": {},
+    "ghcr.io/devcontainers-extra/features/mise:1": {},
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "forwardPorts": [3000],
+  // Or a Dockerfile or Compose file: https://containers.dev/guide/dockerfile
+  // https://github.com/devcontainers/templates/tree/main/src/typescript-node
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+  "name": "dev_rebuild-dave-io",
   "postCreateCommand": "mise trust && mise install"
-
-  // Configure tool-specific properties.
-  // "customizations": {},
-
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
+  // "remoteUser": "root" // https://aka.ms/dev-containers-non-root
 }
