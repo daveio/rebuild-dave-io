@@ -1,4 +1,19 @@
-# `rebuild-dave-io`
+# `.github/copilot-instructions.md` / `AGENTS.md` / `CLAUDE.md`
+
+This file provides guidance to AI agents, including Claude Code (<https://claude.ai/code>), when working
+with code in this repository.
+
+## Context Files
+
+This project is set up to support multiple AI agents, expecting multiple different paths to their context file.
+
+- GitHub Copilot is unable to resolve symlinks, so the canonical path to the context file is `.github/copilot-instructions.md`.
+- For Claude Code, `CLAUDE.md` is a symlink to `.github/copilot-instructions.md`.
+- For other AI agents, `AGENTS.md` is a symlink to `.github/copilot-instructions.md`.
+
+When updating any of these three files, you only need to write updates to one of them. The symlinks should allow you
+to write to whichever file you prefer, but it's recommended to update `.github/copilot-instructions.md` as that
+doesn't depend on any symlink resolution.
 
 ## Project Overview
 
@@ -76,8 +91,3 @@ modules: [
 - @trunkio/launcher for linting
 - npm-run-all2 for parallel script execution
 - nuxi for Nuxt CLI operations
-
-## Links
-
-- [Nuxt Documentation](https://nuxt.com/docs/getting-started/introduction)
-- [Bun Documentation](https://bun.sh/docs)
