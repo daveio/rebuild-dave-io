@@ -2,7 +2,7 @@
   <SpeedInsights />
   <div>
     <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+    <NuxtPage />
   </div>
 </template>
 
