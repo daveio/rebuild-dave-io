@@ -1,4 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+declare global {
+  interface Window {
+    SentryToolbar?: {
+      init(config: { organizationSlug: string; projectIdOrSlug: string }): void;
+    };
+  }
+}
+
 export default defineNuxtConfig({
   app: {
     head: {
