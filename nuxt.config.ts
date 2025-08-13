@@ -56,6 +56,6 @@ export default defineNuxtConfig({
       project: "rebuild-dave-io",
     },
 
-    autoInjectServerSentry: "top-level-import",
+    autoInjectServerSentry: "experimental_dynamic-import",
   },
 });
