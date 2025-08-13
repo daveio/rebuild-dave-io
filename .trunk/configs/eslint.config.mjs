@@ -1,3 +1,4 @@
 // @ts-check
-export { default } from "../../eslint.config.mjs";
+import config from "../../eslint.config.mjs";
+export default config;
 // Your custom configs here

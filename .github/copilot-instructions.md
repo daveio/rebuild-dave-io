@@ -24,6 +24,7 @@ This is a Nuxt 4 application (a rebuild of `dave.io`) using:
 - **Modules**: ESLint, Fonts, Icon, Image, Scripts, Test Utils
 - **Monitoring**: Vercel Speed Insights integration
 - **Linting**: Trunk Check with TypeScript type checking
+- **Tests**: We are NOT writing tests, for increased development velocity.
 
 ## Essential Commands
 
@@ -76,6 +77,12 @@ modules: [
 3. **Linting is two-phase**: Trunk check first, then TypeScript type checking
 4. **Vercel Speed Insights**: Already integrated in `app/app.vue`
 
+### Tests
+
+We are not writing tests, as this is a personal project and it would slow things down.
+
+Tests will be added at a later date. You should NOT write any tests.
+
 ## Key Dependencies
 
 ### Production
@@ -91,3 +98,7 @@ modules: [
 - @trunkio/launcher for linting
 - npm-run-all2 for parallel script execution
 - nuxi for Nuxt CLI operations
+
+## Memories
+
+Memories added by the CLI will be appended here.
