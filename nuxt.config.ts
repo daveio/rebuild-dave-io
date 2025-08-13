@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import tailwindcss from "@tailwindcss/vite"
+
 declare global {
   interface Window {
     SentryToolbar?: {
@@ -15,12 +17,14 @@ export default defineNuxtConfig({
     },
   },
   compatibilityDate: "2025-08-13",
+  css: ["~/assets/css/main.css"],
   devtools: { enabled: true },
   eslint: {
     checker: true,
   },
   experimental: {
     componentIslands: true,
+    inlineRouteRules: true,
     lazyHydration: true,
     viewTransition: true,
   },
@@ -50,11 +54,23 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxt/test-utils",
-    "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     "@sentry/nuxt/module",
     "magic-regexp/nuxt",
+    "@nuxtjs/device",
+    "nuxt-security",
+    "nuxt-link-checker",
+    "nuxt-graphql-client",
+    "@nuxtjs/turnstile",
   ],
+  security: {
+    ssg: {
+      hashScripts: true,
+      hashStyles: true,
+      meta: true,
+    },
+    sri: true,
+  },
   sentry: {
     autoInjectServerSentry: "experimental_dynamic-import",
     sourceMapsUploadOptions: {
@@ -62,8 +78,19 @@ export default defineNuxtConfig({
       project: "rebuild-dave-io",
     },
   },
+  site: {
+    url: "https://rebuild.dave.io",
+    name: "Rebuild of dave.io",
+  },
   sourcemap: {
     client: "hidden",
     server: true,
+  },
+  turnstile: {
+    siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
+    addValidateEndpoint: true,
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 })
