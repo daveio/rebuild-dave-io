@@ -1,4 +1,4 @@
-import * as Sentry from "@sentry/nuxt";
+import * as Sentry from "@sentry/nuxt"
 
 Sentry.init({
   dsn: "https://19712a83d2ff473f8f2d24b41aecc886@o374595.ingest.us.sentry.io/4509836115181568",
@@ -12,4 +12,4 @@ Sentry.init({
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
-});
+})

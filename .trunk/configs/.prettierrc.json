@@ -1,9 +1,16 @@
 {
   "overrides": [
     {
-      "files": ["*.json", "*.jsonc"],
+      "files": ["*.json", "*.jsonc", "*.ts"],
       "options": {
         "trailingComma": "none"
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "options": {
+        "semi": false,
+        "trailingComma": "all"
       }
     }
   ]

@@ -3,8 +3,8 @@
 declare global {
   interface Window {
     SentryToolbar?: {
-      init(config: { organizationSlug: string; projectIdOrSlug: string }): void;
-    };
+      init(config: { organizationSlug: string; projectIdOrSlug: string }): void
+    }
   }
 }
 
@@ -14,10 +14,34 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/webp", href: "/favicon.webp" }],
     },
   },
-
-  compatibilityDate: "2025-07-15",
+  compatibilityDate: "2025-08-13",
   devtools: { enabled: true },
-
+  eslint: {
+    checker: true,
+  },
+  experimental: {
+    componentIslands: true,
+    lazyHydration: true,
+    viewTransition: true,
+  },
+  fonts: {
+    assets: {
+      prefix: "/_fonts/",
+    },
+    families: [
+      { name: "Sixtyfour Convergence", provider: "google" },
+      { name: "Sono", provider: "google" },
+      { name: "Victor Mono", provider: "google" },
+    ],
+    defaults: {
+      styles: ["normal", "italic"],
+      subsets: ["latin-ext", "latin"],
+      weights: [400],
+    },
+  },
+  future: {
+    compatibilityVersion: 4,
+  },
   modules: [
     "@nuxt/eslint",
     "@nuxt/fonts",
@@ -27,44 +51,15 @@ export default defineNuxtConfig({
     "@nuxt/test-utils",
     "@sentry/nuxt/module",
   ],
-
-  future: {
-    compatibilityVersion: 4,
-  },
-
-  experimental: {
-    viewTransition: true,
-    componentIslands: true,
-    lazyHydration: true,
-  },
-
-  fonts: {
-    defaults: {
-      weights: [400],
-      styles: ["normal", "italic"],
-      subsets: ["latin-ext", "latin"],
-    },
-    families: [
-      { name: "Sixtyfour Convergence", provider: "google" },
-      { name: "Sono", provider: "google" },
-      { name: "Victor Mono", provider: "google" },
-    ],
-    assets: {
-      prefix: "/_fonts/",
-    },
-  },
-
-  sourcemap: {
-    server: true,
-    client: "hidden",
-  },
-
   sentry: {
+    autoInjectServerSentry: "experimental_dynamic-import",
     sourceMapsUploadOptions: {
       org: "daveio",
       project: "rebuild-dave-io",
     },
-
-    autoInjectServerSentry: "experimental_dynamic-import",
   },
-});
+  sourcemap: {
+    client: "hidden",
+    server: true,
+  },
+})
