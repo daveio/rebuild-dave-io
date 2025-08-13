@@ -5,9 +5,16 @@
   "scripts": {
     "build": "bun run nuxt build",
     "dev": "bun run nuxt dev",
+    "format": "bun run run-s format:prettier format:trunk",
+    "format:prettier": "bun run prettier --write .",
+    "format:trunk": "bun run trunk fmt -a",
     "generate": "bun run nuxt generate",
     "lint": "bun run run-s lint:trunk lint:types",
+    "lint:fix": "bun run run-s lint:eslint:fix lint:trunk:fix",
+    "lint:eslint": "bun run eslint .",
+    "lint:eslint:fix": "bun run eslint . --fix",
     "lint:trunk": "bun run trunk check -a",
+    "lint:trunk:fix": "bun run trunk check -a --fix",
     "lint:types": "bun run tsc --noEmit",
     "preview": "bun run nuxt preview",
     "postinstall": "bun run nuxt prepare"
