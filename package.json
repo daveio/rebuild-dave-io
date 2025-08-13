@@ -17,9 +17,8 @@
     "lint:trunk:fix": "bun run trunk check -a --fix",
     "lint:types": "bun run tsc --noEmit",
     "preview": "bun run nuxt preview",
-    "postinstall": "bun run-s postinstall:nuxt postinstall:supabase",
-    "postinstall:nuxt": "bun run nuxt prepare",
-    "postinstall:supabase": "bun run supabase gen types --db-url $SUPABASE_DB_URL > supabase.d.ts"
+    "postinstall": "bun run nuxt prepare",
+    "types": "bun run supabase gen types --db-url $SUPABASE_DB_URL > supabase.d.ts"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
