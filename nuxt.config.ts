@@ -54,15 +54,14 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxt/test-utils",
+    "@nuxtjs/device",
+    "@nuxtjs/seo",
+    "@nuxtjs/turnstile",
     "@pinia/nuxt",
     "@sentry/nuxt/module",
     "magic-regexp/nuxt",
-    "@nuxtjs/device",
-    "nuxt-security",
     "nuxt-link-checker",
-    "nuxt-graphql-client",
-    "@nuxtjs/turnstile",
-    "@nuxtjs/seo",
+    "nuxt-security",
   ],
   robots: {
     mergeWithRobotsTxtPath: "app/assets/robots.txt",
@@ -83,16 +82,16 @@ export default defineNuxtConfig({
     },
   },
   site: {
-    url: "https://rebuild.dave.io",
     name: "Rebuild of dave.io",
+    url: "https://rebuild.dave.io",
   },
   sourcemap: {
     client: "hidden",
     server: true,
   },
   turnstile: {
-    siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
     addValidateEndpoint: true,
+    siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
   },
   vite: {
     plugins: [tailwindcss()],
