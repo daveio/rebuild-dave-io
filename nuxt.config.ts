@@ -62,7 +62,11 @@ export default defineNuxtConfig({
     "nuxt-link-checker",
     "nuxt-graphql-client",
     "@nuxtjs/turnstile",
+    "@nuxtjs/seo",
   ],
+  robots: {
+    mergeWithRobotsTxtPath: "app/assets/robots.txt",
+  },
   security: {
     ssg: {
       hashScripts: true,
