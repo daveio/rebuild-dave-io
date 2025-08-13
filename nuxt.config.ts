@@ -29,9 +29,9 @@ export default defineNuxtConfig({
       prefix: "/_fonts/",
     },
     families: [
-      { name: "Sixtyfour Convergence", provider: "google" },
-      { name: "Sono", provider: "google" },
-      { name: "Victor Mono", provider: "google" },
+      { name: "Sixtyfour Convergence", provider: "bunny" },
+      { name: "Sono", provider: "bunny" },
+      { name: "Victor Mono", provider: "bunny" },
     ],
     defaults: {
       styles: ["normal", "italic"],
@@ -43,13 +43,17 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   modules: [
+    "@formkit/auto-animate/nuxt",
     "@nuxt/eslint",
     "@nuxt/fonts",
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxt/test-utils",
+    "@nuxtjs/tailwindcss",
+    "@pinia/nuxt",
     "@sentry/nuxt/module",
+    "magic-regexp/nuxt",
   ],
   sentry: {
     autoInjectServerSentry: "experimental_dynamic-import",
