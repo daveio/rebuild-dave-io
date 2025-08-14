@@ -48,6 +48,7 @@ export default defineNuxtConfig({
   },
   modules: [
     "@formkit/auto-animate/nuxt",
+    // "@nuxt/content", // disabled for later
     "@nuxt/eslint",
     "@nuxt/fonts",
     "@nuxt/icon",
