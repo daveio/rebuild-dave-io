@@ -81,3 +81,7 @@ modules: [
 
 - [Nuxt Documentation](https://nuxt.com/docs/getting-started/introduction)
 - [Bun Documentation](https://bun.sh/docs)
+
+## Plans
+
+Plans are managed [in Notion](https://www.notion.so/daveio/Rebuild-of-dave-io-24db7795690c802489f7d3f8f53d2ec0).
