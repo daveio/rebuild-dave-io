@@ -52,22 +52,24 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   modules: [
-    "@formkit/auto-animate/nuxt", // "@nuxt/content", // disabled for later
+    // "@nuxt/content", // disabled for later
+    "@formkit/auto-animate/nuxt",
     "@nuxt/eslint",
     "@nuxt/fonts",
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxt/scripts",
     "@nuxt/test-utils",
+    "@nuxtjs/color-mode",
     "@nuxtjs/device",
     "@nuxtjs/seo",
+    "@nuxtjs/supabase",
     "@nuxtjs/turnstile",
     "@pinia/nuxt",
     "@sentry/nuxt/module",
     "magic-regexp/nuxt",
     "nuxt-link-checker",
     "nuxt-security",
-    "@nuxtjs/color-mode",
   ],
   robots: {
     mergeWithRobotsTxtPath: "app/assets/robots.txt",
@@ -77,7 +79,8 @@ export default defineNuxtConfig({
     runtimeServerVar: true,
     public: {
       // Client-side environment variables
-      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || "/api",
+      apiBaseUrl: "/api",
+      turnstileSiteKey: "0x4AAAAAABraTjA80I4Pmf1Kv",
     },
   },
   nitro: {
@@ -128,6 +131,10 @@ export default defineNuxtConfig({
   sourcemap: {
     client: "hidden",
     server: true,
+  },
+  supabase: {
+    key: "sb_publishable_dLnJomoZF2UrWVeSXT3qGw_s3sQd03C",
+    url: "https://fsybmtpwqvgnnwzzwdqy.supabase.co",
   },
   turnstile: {
     addValidateEndpoint: true,

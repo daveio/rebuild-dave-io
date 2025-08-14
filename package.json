@@ -10,6 +10,7 @@
     "@nuxtjs/color-mode": "3.5.2",
     "@nuxtjs/device": "3.2.4",
     "@nuxtjs/seo": "3.1.0",
+    "@nuxtjs/supabase": "1.6.0",
     "@nuxtjs/turnstile": "1.0.0",
     "@pinia/nuxt": "^0.11.2",
     "@sentry/nuxt": "^10.5.0",
@@ -68,7 +69,8 @@
     "lint:types": "bun run tsc --noEmit",
     "postinstall": "bun run nuxt prepare",
     "preview": "bun run nuxt preview",
-    "types": "bun run supabase gen types --db-url $SUPABASE_DB_URL > supabase.d.ts"
+    "types": "bun run supabase gen types --db-url $SUPABASE_DB_URL > types/database.types.ts",
+    "types:local": "bun run supabase gen types --local > types/database.types.ts"
   },
   "trustedDependencies": [
     "@parcel/watcher",
