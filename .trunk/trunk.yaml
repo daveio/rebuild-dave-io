@@ -17,6 +17,7 @@ runtimes:
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   enabled:
+    - trunk-toolbox@0.5.4
     - oxipng@9.1.5
     - actionlint@1.7.7
     - checkov@3.2.461
@@ -28,6 +29,16 @@ lint:
     - taplo@0.9.3
     - trufflehog@3.90.4
     - yamllint@1.37.1
+  ignore:
+    - linters:
+        - trunk-toolbox
+      paths:
+        - "**/*.png"
+        - "**/*.jpg"
+        - "**/*.webp"
+        - "**/*.gif"
+        - "**/*.ico"
+        - .devcontainer/devcontainer.json
 actions:
   enabled:
     - trunk-announce
