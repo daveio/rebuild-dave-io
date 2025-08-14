@@ -76,10 +76,14 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     // Server-side environment variables
-    runtimeServerVar: true,
+    turnstileSecretKey: "", // overridden by environment variable
     public: {
       // Client-side environment variables
-      apiBaseUrl: "/api",
+      apiBase: "/api",
+      supabase: {
+        key: "sb_publishable_dLnJomoZF2UrWVeSXT3qGw_s3sQd03C",
+        url: "https://fsybmtpwqvgnnwzzwdqy.supabase.co",
+      },
       turnstileSiteKey: "0x4AAAAAABraTjA80I4Pmf1Kv",
     },
   },
