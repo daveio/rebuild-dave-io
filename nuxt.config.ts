@@ -16,6 +16,11 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/webp", href: "/favicon.webp" }],
     },
   },
+  colorMode: {
+    preference: "dark",
+    fallback: "dark",
+    storageKey: "nuxt-color-mode",
+  },
   compatibilityDate: "2025-08-13",
   css: ["~/assets/css/main.css"],
   devtools: { enabled: true },
@@ -47,8 +52,7 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   modules: [
-    "@formkit/auto-animate/nuxt",
-    // "@nuxt/content", // disabled for later
+    "@formkit/auto-animate/nuxt", // "@nuxt/content", // disabled for later
     "@nuxt/eslint",
     "@nuxt/fonts",
     "@nuxt/icon",
@@ -63,9 +67,44 @@ export default defineNuxtConfig({
     "magic-regexp/nuxt",
     "nuxt-link-checker",
     "nuxt-security",
+    "@nuxtjs/color-mode",
   ],
   robots: {
     mergeWithRobotsTxtPath: "app/assets/robots.txt",
+  },
+  runtimeConfig: {
+    // Server-side environment variables
+    runtimeServerVar: true,
+    public: {
+      // Client-side environment variables
+      apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || "/api",
+    },
+  },
+  nitro: {
+    experimental: {
+      wasm: true,
+    },
+    routeRules: {
+      "/api/**": {
+        cors: true,
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "DENY",
+          "X-XSS-Protection": "0",
+        },
+      },
+      "/go/**": {
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+        },
+      },
+      "/.well-known/nostr.json": {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+      },
+    },
   },
   security: {
     ssg: {

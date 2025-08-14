@@ -66,8 +66,8 @@ modules: [
   "@nuxt/icon", // Icon components
   "@nuxt/image", // Image optimization
   "@nuxt/scripts", // Third-party script management
-  "@nuxt/test-utils", // Testing utilities
-];
+  "@nuxt/test-utils" // Testing utilities
+]
 ```
 
 ## Development Workflow
