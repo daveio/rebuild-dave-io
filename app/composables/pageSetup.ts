@@ -40,14 +40,14 @@ export function usePageSetup({
   })
 
   useSeoMeta({
-    description,
-    ogImage: image,
+    description: description || "Personal site of Dave Williams",
+    ogImage: image || "/images/social.webp",
     ogTitle: fullTitle,
     ogType: "website",
     title: fullTitle,
     twitterCard: "summary_large_image",
-    twitterDescription: description,
-    twitterImage: image,
+    twitterDescription: description || "Personal site of Dave Williams",
+    twitterImage: image || "/images/social.webp",
     twitterTitle: fullTitle,
   })
 }
