@@ -46,12 +46,6 @@
                 class="link-url"
               > fish</NuxtLink>
               <span v-if="!showFishLink">{{ subtitle }}</span> ::
-              <span
-                v-if="showEmail"
-                class="inline-block"
-              >
-                <Email /> ::
-              </span>
               {{ dimensions || "13×37" }}
             </div>
           </div>
@@ -105,8 +99,6 @@
   lang="ts"
   setup
 >
-
-  import Email from "~/components/shared/Email.vue"
 
   interface Props {
     dimensions?: string

@@ -155,7 +155,6 @@ export default defineNuxtConfig({
     },
   },
   turnstile: {
-    addValidateEndpoint: true,
     siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
   },
   vite: {

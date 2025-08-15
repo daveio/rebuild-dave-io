@@ -3,8 +3,13 @@
     <NuxtTurnstile v-model="token" />
     <span
       v-if="!error && !emailAddress"
-      class="text-text font-mono"
-    >Checking your browser...</span>
+      class="text-yellow font-mono"
+    >
+      <Icon
+        name="i-oui-inspect"
+        class="animate-ping ml-2"
+      /> Checking your browser...
+    </span>
     <span
       v-else-if="error"
       class="text-red font-mono"
@@ -49,8 +54,8 @@
         })
 
         emailAddress.value = response.email
-      } catch (err) {
-        error.value = err instanceof Error ? err.message : "Verification failed"
+      } catch {
+        error.value = "Browser integrity check failed"
       } finally {
         loading.value = false
       }
