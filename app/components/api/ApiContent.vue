@@ -1,9 +1,20 @@
 <template>
   <div class="space-y-6">
-    <ApiPageHeader />
+    <div class="text-center">
+      <h1 class="text-2xl font-bold mb-4 bg-gradient-to-r from-yellow via-orange to-red bg-clip-text text-transparent">
+        The API That Nobody Asked For
+      </h1>
+      <p class="text-xl text-subtext1 mb-4">
+        This personal site has an <strong class="text-yellow">overengineered API</strong>.
+      </p>
+      <p class="text-lg text-subtext0">Let's explore what you can do with it 🚀</p>
+    </div>
 
     <!-- What's This About Section -->
-    <ApiInfoCard title="🤨 What's This About?" color="yellow">
+    <ApiInfoCard
+      title="🤨 What's This About?"
+      color="yellow"
+    >
       <p class="text-text leading-relaxed">Yes. <strong class="text-yellow">Of course there's an API</strong>.</p>
       <p class="text-text leading-relaxed">
         It started as a simple way to serve some images and somehow evolved into a full-blown JWT-authenticated,
@@ -21,7 +32,10 @@
     </ApiInfoCard>
 
     <!-- Authentication Section -->
-    <ApiInfoCard title="🔐 Authentication" color="purple">
+    <ApiInfoCard
+      title="🔐 Authentication"
+      color="purple"
+    >
       <p class="text-text leading-relaxed">The API uses JWT tokens.</p>
       <div class="mt-4">
         <h3 class="text-purple font-semibold mb-2">Using Authentication</h3>
@@ -30,7 +44,10 @@
     </ApiInfoCard>
 
     <!-- Public Endpoints Section -->
-    <ApiInfoCard title="🌍 Public Endpoints" color="green">
+    <ApiInfoCard
+      title="🌍 Public Endpoints"
+      color="green"
+    >
       <p class="text-text leading-relaxed mb-4">
         These endpoints are available to everyone. Use them responsibly, or don't - I'm not your dad.
       </p>
@@ -52,7 +69,10 @@
     </ApiInfoCard>
 
     <!-- Protected Endpoints Section -->
-    <ApiInfoCard title="🚪 Protected Endpoints" color="red">
+    <ApiInfoCard
+      title="🚪 Protected Endpoints"
+      color="red"
+    >
       <p class="text-text leading-relaxed mb-4">
         These endpoints require authentication. Without proper tokens, you'll get a 401 faster than you can say
         "unauthorized".
@@ -78,7 +98,10 @@
     </ApiInfoCard>
 
     <!-- Getting Started Section -->
-    <ApiInfoCard title="🚀 Getting Started" color="cyan">
+    <ApiInfoCard
+      title="🚀 Getting Started"
+      color="cyan"
+    >
       <p class="text-text leading-relaxed mb-4">Want to use the API? Here's the quickest way to get started:</p>
 
       <div class="space-y-4">
@@ -101,7 +124,10 @@
 
       <div class="bg-cyan/20 p-4 rounded-lg border border-cyan/30 mt-4">
         <p class="text-cyan text-sm">
-          <Icon name="i-heroicons-light-bulb" class="mr-2" />
+          <Icon
+            name="i-heroicons-light-bulb"
+            class="mr-2"
+          />
           The API runs on Cloudflare Workers, so it's distributed globally. You'll always hit the nearest edge location.
         </p>
       </div>
@@ -112,9 +138,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import BackToHomeButton from "../ui/BackToHomeButton.vue"
-import ApiExampleBlock from "./ApiExampleBlock.vue"
-import ApiInfoCard from "./ApiInfoCard.vue"
-import ApiPageHeader from "./ApiPageHeader.vue"
+<script
+  setup
+  lang="ts"
+>
+  import BackToHomeButton from "~/components/shared/BackToHomeButton.vue"
+  import ApiExampleBlock from "~/components/api/ApiExampleBlock.vue"
+  import ApiInfoCard from "~/components/api/ApiInfoCard.vue"
 </script>

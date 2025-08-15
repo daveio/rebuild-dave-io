@@ -1,18 +1,25 @@
 <template>
   <span>
     <NuxtTurnstile v-model="token" />
-    <p
-      v-if="loading"
-      class="text-text"
-    >Verifying...</p>
-    <p
+    <span
+      v-if="!error && !emailAddress"
+      class="text-text font-mono"
+    >Checking your browser...</span>
+    <span
       v-else-if="error"
-      class="text-red"
-    >{{ error }}</p>
-    <p
+      class="text-red font-mono"
+    >{{ error }}</span>
+    <span
       v-else-if="emailAddress"
       class="text-text font-mono"
-    >{{ emailAddress }}</p>
+    >
+      <a
+        :href="`mailto:${emailAddress}`"
+        class="link-url"
+      >
+        {{ emailAddress }}
+      </a>
+    </span>
   </span>
 </template>
 

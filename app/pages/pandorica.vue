@@ -33,7 +33,7 @@
   setup
   lang="ts"
 >
-  import BackToHomeButton from "../components/ui/BackToHomeButton.vue"
+  import BackToHomeButton from "~/components/shared/BackToHomeButton.vue"
 
   // Apply the access control middleware to this page
   definePageMeta({

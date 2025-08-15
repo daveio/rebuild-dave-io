@@ -28,7 +28,7 @@
   setup
   lang="ts"
 >
-  import BackToHomeButton from "~/components/ui/BackToHomeButton.vue"
+  import BackToHomeButton from "~/components/shared/BackToHomeButton.vue"
 
   usePageSetup({
     title: "go",

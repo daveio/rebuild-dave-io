@@ -106,7 +106,7 @@
   setup
 >
 
-  import Email from "~/components/ui/Email.vue"
+  import Email from "~/components/shared/Email.vue"
 
   interface Props {
     dimensions?: string
