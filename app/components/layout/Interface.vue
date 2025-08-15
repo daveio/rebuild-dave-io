@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Hero />
+    <Hero v-if="!hideHero" />
     <div
       ref="interfaceContainer"
       class="pb-6 card border border-surface2 shadow-2xl backdrop-blur-sm w-full terminal-container flex flex-col rounded-lg bg-surface0/50"
@@ -43,6 +43,7 @@ interface Props {
   dimensions?: string
   showFishLink?: boolean
   useMonospace?: boolean
+  hideHero?: boolean
 }
 
 withDefaults(defineProps<Props>(), {

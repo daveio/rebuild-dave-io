@@ -80,17 +80,21 @@ export default defineNuxtConfig({
     mergeWithRobotsTxtPath: "app/assets/robots.txt",
   },
   runtimeConfig: {
-    // Server-side environment variables
-    turnstileSecretKey: "", // overridden by environment variable
+    openRouterApiKey: "", // overridden by environment variable
     public: {
-      // Client-side environment variables
       apiBase: "/api",
+      siteUrl: "https://rebuild.dave.io",
       supabase: {
         key: "sb_publishable_dLnJomoZF2UrWVeSXT3qGw_s3sQd03C",
         url: "https://fsybmtpwqvgnnwzzwdqy.supabase.co",
       },
-      turnstileSiteKey: "0x4AAAAAABraTjA80I4Pmf1Kv",
+      turnstile: {
+        siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
+      },
     },
+    supabaseDbUrl: "", // overridden by environment variable
+    supabaseServiceKey: "", // overridden by environment variable
+    turnstileSecretKey: "", // overridden by environment variable
   },
   nitro: {
     experimental: {
@@ -147,7 +151,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: "/login",
       callback: "/auth/callback",
-      exclude: ["/api/**", "/", "/gender", "/api", "/go", "/go/**"],
+      include: ["/pandorica"],
     },
   },
   turnstile: {
