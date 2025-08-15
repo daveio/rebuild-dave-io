@@ -5,11 +5,11 @@ export function usePageSetup({
   image,
   keywords,
 }: {
-  title: string
-  description: string
-  icon: string
-  image: string
-  keywords: string[]
+  title?: string
+  description?: string
+  icon?: string
+  image?: string
+  keywords?: string[]
 }) {
   const fullTitle = `${title} @ dave.io`
 
@@ -18,21 +18,23 @@ export function usePageSetup({
     link: [
       {
         rel: "icon",
-        href: icon,
+        href: icon || "/images/icon.ico",
       },
       {
         rel: "apple-touch-icon",
-        href: icon,
+        href: icon || "/images/icon.webp",
       },
     ],
     meta: [
       {
         name: "description",
-        content: description,
+        content: description || "Personal site of Dave Williams",
       },
       {
         name: "keywords",
-        content: keywords.join(", "),
+        content:
+          keywords?.join(", ") ||
+          "dave.io, Dave Williams, personal site, portfolio, blog, projects, web development, programming, technology, software engineer",
       },
     ],
   })
@@ -48,10 +50,4 @@ export function usePageSetup({
     twitterImage: image,
     twitterTitle: fullTitle,
   })
-
-  // defineOgImageComponent("Frame", {
-  //   description,
-  //   image,
-  //   icon
-  // })
 }
