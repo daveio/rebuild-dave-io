@@ -34,7 +34,8 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@anthropic-ai/claude-code": "^1.0.80",
+    "@anthropic-ai/claude-code": "^1.0.81",
+    "@awmottaz/prettier-plugin-void-html": "^1.9.0",
     "@catppuccin/daisyui": "^2.1.1",
     "@catppuccin/tailwindcss": "^1.0.0",
     "@iconify-json/heroicons": "^1.2.2",

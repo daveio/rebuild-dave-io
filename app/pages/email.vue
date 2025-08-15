@@ -5,40 +5,48 @@
     <Background />
     <div class="max-w-3xl mx-auto w-full relative z-10">
       <Interface :hide-hero="true">
-        <NuxtTurnstile ref="turnstile" v-model="token" />
-        {{ emailAddress }}
+        <NuxtTurnstile v-model="token" />
+        <div class="text-center mt-4">
+          <p v-if="loading" class="text-text">Verifying...</p>
+          <p v-else-if="error" class="text-red">{{ error }}</p>
+          <p v-else-if="emailAddress" class="text-text font-mono">{{ emailAddress }}</p>
+        </div>
       </Interface>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from "vue"
 import Background from "../components/layout/Background.vue"
 import Interface from "../components/layout/Interface.vue"
+// Auto-imports are available in Nuxt, no need to import ref, watch, etc.
+const token = ref<string>()
+const emailAddress = ref<string>()
+const loading = ref(false)
+const error = ref<string>()
 
-// you can call this template ref anything
-const token = ref()
-const emailAddress = ref()
+// Watch for token changes and verify
+watch(
+  token,
+  async (newToken) => {
+    if (!newToken) return
 
-emailAddress.value = "[...loading...]"
+    loading.value = true
+    error.value = undefined
 
-const stopWatchingToken = watch(token, async (newToken) => {
-  if (!newToken) return
-  try {
-    const response = await $fetch("/api/util/email", {
-      method: "POST",
-      body: { token: newToken }
-    })
-    if (response.email) {
+    try {
+      const response = await $fetch("/api/util/email", {
+        method: "POST",
+        body: { token: newToken }
+      })
+
       emailAddress.value = response.email
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : "Verification failed"
+    } finally {
+      loading.value = false
     }
-    // stop after first successful capture to avoid duplicate posts
-    stopWatchingToken()
-  } catch {
-    void 0
-  }
-})
+  },
+  { once: true }
+) // Use once option instead of manual stop
 </script>
-
-<style></style>
