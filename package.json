@@ -73,7 +73,7 @@
     "lint:types": "bun run tsc --noEmit",
     "postinstall": "bun run nuxt prepare",
     "preview": "bun run nuxt preview",
-    "types": "bun run supabase gen types --db-url $SUPABASE_DB_URL > types/database.types.ts",
+    "types": "bun run supabase gen types --db-url $NUXT_SUPABASE_DB_URL > types/database.types.ts",
     "types:local": "bun run supabase gen types --local > types/database.types.ts"
   },
   "trustedDependencies": [

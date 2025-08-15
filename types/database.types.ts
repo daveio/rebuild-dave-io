@@ -28,7 +28,27 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      redirects: {
+        Row: {
+          destination: string
+          hits: number
+          last_hit: string | null
+          slug: string
+        }
+        Insert: {
+          destination: string
+          hits?: number
+          last_hit?: string | null
+          slug: string
+        }
+        Update: {
+          destination?: string
+          hits?: number
+          last_hit?: string | null
+          slug?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
