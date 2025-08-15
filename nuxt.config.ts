@@ -23,7 +23,12 @@ export default defineNuxtConfig({
   },
   compatibilityDate: "2025-08-13",
   css: ["~/assets/css/main.css"],
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+    timeline: {
+      enabled: true,
+    },
+  },
   eslint: {
     checker: true,
   },
@@ -139,6 +144,11 @@ export default defineNuxtConfig({
   supabase: {
     key: "sb_publishable_dLnJomoZF2UrWVeSXT3qGw_s3sQd03C",
     url: "https://fsybmtpwqvgnnwzzwdqy.supabase.co",
+    redirectOptions: {
+      login: "/login",
+      callback: "/auth/callback",
+      exclude: ["/api/**", "/", "/gender", "/api", "/go", "/go/**"],
+    },
   },
   turnstile: {
     addValidateEndpoint: true,
