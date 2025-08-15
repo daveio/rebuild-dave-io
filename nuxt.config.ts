@@ -160,5 +160,8 @@ export default defineNuxtConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: process.env.EXTERNAL_DEV_HOSTS ? process.env.EXTERNAL_DEV_HOSTS.split(",") : [],
+    },
   },
 })
