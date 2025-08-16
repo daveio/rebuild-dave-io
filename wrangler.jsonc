@@ -18,7 +18,9 @@
       "binding": "D1",
       "database_id": "0ab649a2-661b-47e4-90d7-e5b8af597dad",
       "database_name": "rebuild-dave-io",
-      "migrations_dir": "./migrations"
+      "migrations_dir": "./migrations",
+      "migrations_table": "migrations",
+      "preview_database_id": "4d7cdc1e-9f3d-48ee-a756-35dff427281b"
     }
   ],
   "images": {
