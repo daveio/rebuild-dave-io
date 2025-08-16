@@ -64,6 +64,8 @@
     "build": "bun run nuxt build",
     "deploy": "bun run-s build deploy:wrangler",
     "deploy:wrangler": "bun run wrangler deploy",
+    "deploy:nonprod": "bun run-s build deploy:nonprod:wrangler",
+    "deploy:nonprod:wrangler": "bun run wrangler versions upload",
     "dev": "bun run nuxt dev",
     "format": "bun run run-s format:prettier format:trunk",
     "format:prettier": "bun run prettier --write .",
