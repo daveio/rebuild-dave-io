@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import tailwindcss from "@tailwindcss/vite"
+import { cloudflare } from "@cloudflare/vite-plugin"
 
 declare global {
   interface Window {
@@ -75,31 +76,17 @@ export default defineNuxtConfig({
     "magic-regexp/nuxt",
     "nuxt-link-checker",
     "nuxt-security",
+    "nitro-cloudflare-dev",
   ],
-  robots: {
-    mergeWithRobotsTxtPath: "app/assets/robots.txt",
-  },
-  runtimeConfig: {
-    openRouterApiKey: "", // overridden by environment variable
-    public: {
-      apiBase: "/api",
-      siteUrl: "https://rebuild.dave.io",
-      supabase: {
-        key: "sb_publishable_dLnJomoZF2UrWVeSXT3qGw_s3sQd03C",
-        url: "https://fsybmtpwqvgnnwzzwdqy.supabase.co",
-      },
-      turnstile: {
-        siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
-      },
-    },
-    supabaseDbUrl: "", // overridden by environment variable
-    supabaseServiceKey: "", // overridden by environment variable
-    turnstileSecretKey: "", // overridden by environment variable
-  },
   nitro: {
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
     experimental: {
       wasm: true,
     },
+    preset: "cloudflare_module",
     routeRules: {
       "/api/**": {
         cors: true,
@@ -121,6 +108,29 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+  robots: {
+    mergeWithRobotsTxtPath: "app/assets/robots.txt",
+  },
+  runtimeConfig: {
+    openRouterApiKey: "", // overridden by environment variable
+    public: {
+      apiBase: "/api",
+      cloudflare: {
+        accountId: "def50674a738cee409235f71819973cf",
+      },
+      siteUrl: "https://rebuild.dave.io",
+      supabase: {
+        key: "sb_publishable_dLnJomoZF2UrWVeSXT3qGw_s3sQd03C",
+        url: "https://fsybmtpwqvgnnwzzwdqy.supabase.co",
+      },
+      turnstile: {
+        siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
+      },
+    },
+    supabaseDbUrl: "", // overridden by environment variable
+    supabaseServiceKey: "", // overridden by environment variable
+    turnstileSecretKey: "", // overridden by environment variable
   },
   security: {
     ssg: {
@@ -158,9 +168,9 @@ export default defineNuxtConfig({
     siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
   },
   vite: {
-    plugins: [tailwindcss()],
-    server: {
-      allowedHosts: process.env.EXTERNAL_DEV_HOSTS ? process.env.EXTERNAL_DEV_HOSTS.split(",") : [],
+    plugins: [tailwindcss(), cloudflare()],
+    build: {
+      minify: "esbuild",
     },
   },
 })

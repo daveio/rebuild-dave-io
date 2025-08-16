@@ -21,7 +21,6 @@
     "username": "postgres",
     "password": "postgres",
     "database": "postgres",
-    "connTimeoutSecs": 10,
-    "disableConnection": true
+    "connTimeoutSecs": 10
   }
 }

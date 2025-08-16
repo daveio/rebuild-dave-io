@@ -3,7 +3,8 @@
   "files": [],
   "compilerOptions": {
     "strict": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["./worker-configuration.d.ts"]
   },
   "references": [
     {

@@ -7,7 +7,6 @@ This is a Nuxt 4 application (a rebuild of `dave.io`) using:
 - **Runtime**: Node.js (Nuxt itself), Bun (package manager and `bin/` script runtime)
 - **Framework**: Nuxt 4.0.3 with Vue 3.5.18
 - **Modules**: ESLint, Fonts, Icon, Image, Scripts, Test Utils
-- **Monitoring**: Vercel Speed Insights integration
 - **Linting**: Trunk Check with TypeScript type checking
 
 ## Essential Commands
@@ -59,7 +58,6 @@ modules: [
 1. **Always use Bun** for package management and script execution
 2. **Build requires prefix**: Use `bun run build` not `bun build` (conflicts with Bun's internal build)
 3. **Linting is two-phase**: Trunk check first, then TypeScript type checking
-4. **Vercel Speed Insights**: Already integrated in `app/app.vue`
 
 ## Key Dependencies
 
@@ -67,7 +65,6 @@ modules: [
 
 - Nuxt 4.0.3 (latest v4)
 - Vue 3.5.18 & Vue Router 4.5.1
-- @vercel/speed-insights for performance monitoring
 - @unhead/vue for head management
 
 ### Development

@@ -31,6 +31,12 @@ lint:
     - yamllint@1.37.1
   ignore:
     - linters:
+        - ALL
+      paths:
+        - env.d.ts
+        - worker-configuration.d.ts
+        - types/database.types.ts
+    - linters:
         - trunk-toolbox
       paths:
         - "**/*.png"

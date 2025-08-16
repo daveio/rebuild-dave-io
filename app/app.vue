@@ -3,8 +3,6 @@
     data-theme="mocha"
     class="mocha"
   >
-    <Analytics />
-    <SpeedInsights />
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator />
     <NuxtLayout v-bind="layoutProps">
@@ -17,8 +15,6 @@
   setup
   lang="ts"
 >
-  import { Analytics } from "@vercel/analytics/nuxt"
-  import { SpeedInsights } from "@vercel/speed-insights/nuxt"
 
   declare global {
     interface Window {
