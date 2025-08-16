@@ -15,7 +15,7 @@
   "compatibility_flags": ["nodejs_compat", "nodejs_compat_populate_process_env"],
   "d1_databases": [
     {
-      "binding": "D1",
+      "binding": "DB",
       "database_id": "0ab649a2-661b-47e4-90d7-e5b8af597dad",
       "database_name": "rebuild-dave-io",
       "migrations_dir": "migrations",
@@ -31,6 +31,10 @@
     {
       "binding": "KV",
       "id": "bc851a0a2c0e4d2fbd44cb5612f9c96c"
+    },
+    {
+      "binding": "CACHE",
+      "id": "7d70d75b4ae94588840969566702e692"
     }
   ],
   "limits": {
@@ -47,6 +51,12 @@
     "mode": "smart"
   },
   "preview_urls": true,
+  "r2_buckets": [
+    {
+      "binding": "BLOB",
+      "bucket_name": "rebuild-dave-io"
+    }
+  ],
   "routes": [
     {
       "custom_domain": true,
