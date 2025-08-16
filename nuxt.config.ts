@@ -68,14 +68,13 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxtjs/device",
     "@nuxtjs/seo",
-    "@nuxtjs/supabase",
     "@nuxtjs/turnstile",
     "@pinia/nuxt",
     "@sentry/nuxt/module",
     "magic-regexp/nuxt",
+    "nitro-cloudflare-dev",
     "nuxt-link-checker",
     "nuxt-security",
-    "nitro-cloudflare-dev",
   ],
   nitro: {
     cloudflare: {
@@ -119,16 +118,10 @@ export default defineNuxtConfig({
         accountId: "def50674a738cee409235f71819973cf",
       },
       siteUrl: "https://rebuild.dave.io",
-      supabase: {
-        key: "sb_publishable_dLnJomoZF2UrWVeSXT3qGw_s3sQd03C",
-        url: "https://fsybmtpwqvgnnwzzwdqy.supabase.co",
-      },
       turnstile: {
         siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
       },
     },
-    supabaseDbUrl: "", // overridden by environment variable
-    supabaseServiceKey: "", // overridden by environment variable
     turnstileSecretKey: "", // overridden by environment variable
   },
   security: {
@@ -153,15 +146,6 @@ export default defineNuxtConfig({
   sourcemap: {
     client: "hidden",
     server: true,
-  },
-  supabase: {
-    key: "sb_publishable_dLnJomoZF2UrWVeSXT3qGw_s3sQd03C",
-    url: "https://fsybmtpwqvgnnwzzwdqy.supabase.co",
-    redirectOptions: {
-      login: "/login",
-      callback: "/auth/callback",
-      include: ["/pandorica"],
-    },
   },
   turnstile: {
     siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
