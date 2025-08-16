@@ -1,8 +1,14 @@
 // @ts-check
-import withNuxt from "./.nuxt/eslint.config.mjs"
+import withNuxt, { defineFlatConfigs } from "./.nuxt/eslint.config.mjs"
 
-export default withNuxt({
-  rules: {
-    "vue/html-self-closing": "off"
-  }
-})
+export default defineFlatConfigs(
+  // Top-level ignore so ESLint CLI never considers this file
+  {
+    ignores: ["worker-configuration.d.ts"]
+  },
+  withNuxt({
+    rules: {
+      "vue/html-self-closing": "off"
+    }
+  })
+)

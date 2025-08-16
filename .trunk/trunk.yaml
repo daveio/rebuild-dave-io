@@ -35,7 +35,6 @@ lint:
       paths:
         - env.d.ts
         - worker-configuration.d.ts
-        - types/database.types.ts
     - linters:
         - trunk-toolbox
       paths:
