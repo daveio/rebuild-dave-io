@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import tailwindcss from "@tailwindcss/vite"
-import { cloudflare } from "@cloudflare/vite-plugin"
 
 declare global {
   interface Window {
@@ -141,7 +140,7 @@ export default defineNuxtConfig({
     sri: true,
   },
   sentry: {
-    autoInjectServerSentry: "experimental_dynamic-import",
+    autoInjectServerSentry: "top-level-import",
     sourceMapsUploadOptions: {
       org: "daveio",
       project: "rebuild-dave-io",
@@ -168,7 +167,7 @@ export default defineNuxtConfig({
     siteKey: "0x4AAAAAABraTjA80I4Pmf1K",
   },
   vite: {
-    plugins: [tailwindcss(), cloudflare()],
+    plugins: [tailwindcss()],
     build: {
       minify: "esbuild",
     },

@@ -35,7 +35,6 @@
     "cpu_ms": 30000
   },
   "logpush": false,
-  "main": "./.output/server/index.mjs",
   "minify": true,
   "name": "rebuild-dave-io",
   "observability": {
