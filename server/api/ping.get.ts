@@ -9,12 +9,14 @@ const redirects = sqliteTable("redirects", {
 })
 
 async function testDB(event: H3Event): Promise<unknown> {
-  return await getDB(event).select().from(redirects).all()
+  const res = await getDB(event).select().from(redirects).all()
+  console.log(JSON.stringify(res))
+  return res
 }
 
 export default defineEventHandler(async (event) => {
   return ok(event, {
     message: "pong!",
-    queryResult: testDB(event),
+    queryResult: await testDB(event),
   })
 })
