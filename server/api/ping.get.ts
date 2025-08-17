@@ -1,6 +1,6 @@
 import { ok } from "../utils/response"
 import { getDB } from "../utils/cloudflare"
-import { redirects } from "../../db/schema"
+import { redirects } from "../db/schema"
 
 export default defineEventHandler(async (event) => {
   const db = getDB(event)
