@@ -28,10 +28,6 @@
     {
       "binding": "KV",
       "id": "bc851a0a2c0e4d2fbd44cb5612f9c96c"
-    },
-    {
-      "binding": "CACHE",
-      "id": "7d70d75b4ae94588840969566702e692"
     }
   ],
   "limits": {
