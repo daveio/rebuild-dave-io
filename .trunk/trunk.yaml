@@ -27,7 +27,7 @@ lint:
     - osv-scanner@2.0.3
     - prettier@3.6.2
     - taplo@0.9.3
-    - trufflehog@3.90.4
+    - trufflehog@3.90.5
     - yamllint@1.37.1
   ignore:
     - linters:
@@ -44,6 +44,7 @@ lint:
         - "**/*.gif"
         - "**/*.ico"
         - .devcontainer/devcontainer.json
+        - sql/redirects.sql
 actions:
   enabled:
     - trunk-announce
