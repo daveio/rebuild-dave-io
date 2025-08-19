@@ -36,4 +36,4 @@ jobs:
             You have access to a wide variety of tools which you can use to evaluate this pull request. You should NOT, however, make any changes without explicitly being asked to do so.
             If configuring co-authorship, use Dave Williams, email dave@dave.io, GitHub username daveio.
           model: claude-opus-4-1-20250805
-        uses: anthropics/claude-code-action@a80505bbfb8296afe47872cf5ada5b2034ad8c45
+        uses: anthropics/claude-code-action@68b7ca379c023e06c7d12ad2c81e346b1670cf8c
