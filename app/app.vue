@@ -15,7 +15,6 @@
   setup
   lang="ts"
 >
-
   declare global {
     interface Window {
       SentryToolbar?: {

@@ -31,9 +31,8 @@
         </p>
         <p class="text-text leading-relaxed">
           In fact, to us, gender isn't a simple line between male and female. There are other axes to it, ones which
-          don't
-          have convenient names yet. Our gender identity shifts around in this multidimensional space, where gender is a
-          strange, variable, often inscrutable haze. ✨
+          don't have convenient names yet. Our gender identity shifts around in this multidimensional space, where
+          gender is a strange, variable, often inscrutable haze. ✨
         </p>
         <div class="bg-pink/20 p-4 rounded-lg border border-pink/30">
           <p class="text-pink text-sm">
@@ -59,8 +58,7 @@
         <p class="text-text leading-relaxed">
           When you feel a thing so regularly, you just assume that it's part of the normal human experience. Frequently
           having times you wish you could interact with the world being seen as feminine, envying people who get
-          feminine
-          presentation for free? Turns out those are things which cis people don't experience.
+          feminine presentation for free? Turns out those are things which cis people don't experience.
         </p>
         <p class="text-text leading-relaxed">
           It was particularly confusing because - and this is why I never pursued it - it wasn't the case all the time.
@@ -90,9 +88,8 @@
         </p>
         <p class="text-text leading-relaxed">
           In terms of dictionary definitions, yes - the gender we were assigned at birth does not match our actual
-          gender,
-          and never has. There's a complication to it, which is that the construction of the word 'transgender' implies
-          alternation from one binary to another, and so some people aren't comfortable with it.
+          gender, and never has. There's a complication to it, which is that the construction of the word 'transgender'
+          implies alternation from one binary to another, and so some people aren't comfortable with it.
         </p>
         <p class="text-text leading-relaxed">
           There's also the factor with which I have trouble, which is that it feels like appropriating someone else's
@@ -118,13 +115,11 @@
         </p>
         <p class="text-text leading-relaxed">
           Studies suggest that while sex differentiation exists on a single axis, it's actually quite common for a
-          person
-          to be somewhere between the extremes. Science is cool like that.
+          person to be somewhere between the extremes. Science is cool like that.
         </p>
         <p class="text-text leading-relaxed">
           Many cultures throughout history and around the world have recognized more than two genders. Here are just a
-          few
-          examples:
+          few examples:
         </p>
         <ul>
           <li>
@@ -146,8 +141,8 @@
             <Icon
               name="i-heroicons-exclamation-circle"
               class="font-bold mr-2 text-red"
-            /> Even biology isn't as binary as
-            we once thought - intersex conditions affect about 1 in 2000 births.
+            /> Even biology isn't as binary
+            as we once thought - intersex conditions affect about 1 in 2000 births.
           </p>
         </div>
       </GenderInfoCard>

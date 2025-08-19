@@ -5,9 +5,8 @@
       v-if="!error && !emailAddress"
       class="text-yellow font-mono"
     >
-      Checking your browser...
-      <VueSpinnerAudio
-        size="20"
+      <VueSpinnerDots
+        size="40"
         color="yellow"
       />
     </span>
@@ -33,9 +32,7 @@
   lang="ts"
   setup
 >
-  import {
-    VueSpinnerAudio
-  } from "vue3-spinners"
+  import { VueSpinnerDots } from "vue3-spinners"
 
   // Auto-imports are available in Nuxt, no need to import ref, watch, etc.
   const token = ref<string>()
