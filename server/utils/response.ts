@@ -1,5 +1,6 @@
 import type { H3Event } from "h3"
 import { getQuery, getRequestHeaders, getRequestURL, getRouterParams, setResponseStatus } from "h3"
+import { logResponse } from "~~/server/utils/logging"
 
 function serializeEvent(event: H3Event) {
   const headers = getRequestHeaders(event)
@@ -38,6 +39,7 @@ function wrapResponse(event: H3Event, data: unknown, error?: string, code?: numb
 }
 
 export function ok(event: H3Event, data: unknown, code?: number) {
+  logResponse(event, data, code || 200)
   if (code) {
     return wrapResponse(event, data, undefined, code)
   } else {
@@ -46,6 +48,7 @@ export function ok(event: H3Event, data: unknown, code?: number) {
 }
 
 export function error(event: H3Event, data: unknown, error: string, code?: number) {
+  logResponse(event, data, code || 500, error)
   if (code) {
     return wrapResponse(event, data, error, code)
   } else {
