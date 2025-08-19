@@ -4,6 +4,12 @@
   "ai": {
     "binding": "AI"
   },
+  "analytics_engine_datasets": [
+    {
+      "binding": "ANALYTICS",
+      "dataset": "rebuild-dave-io"
+    }
+  ],
   "assets": {
     "binding": "ASSETS",
     "directory": "./.output/public/"
