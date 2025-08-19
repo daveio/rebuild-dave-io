@@ -1,11 +1,20 @@
+import { ok, error } from "~~/server/utils/response"
+
+/**
+ * Handles HTTP POST requests for email verification.
+ * This endpoint verifies a Turnstile token and returns my email address.
+ *
+ * Args:
+ *   event: The incoming HTTP event containing the request and context.
+ *
+ * Returns:
+ *   A response object containing the email address and success status.
+ */
 export default defineEventHandler(async (event) => {
   const { token } = await readBody(event)
 
   if (!token) {
-    throw createError({
-      statusCode: 422,
-      statusMessage: "Token not provided.",
-    })
+    return error(event, {}, "Token not provided.", 422)
   }
 
   // Use the built-in Turnstile verification from @nuxtjs/turnstile
@@ -13,15 +22,11 @@ export default defineEventHandler(async (event) => {
 
   // Logic was inverted - should fail if NOT successful
   if (!validationResult.success) {
-    throw createError({
-      statusCode: 403,
-      statusMessage: "Token validation failed.",
-    })
+    return error(event, {}, "Token validation failed.", 403)
   }
 
   // Return the email after successful verification
-  return {
+  return ok(event, {
     email: "dave@dave.io",
-    success: true,
-  }
+  })
 })

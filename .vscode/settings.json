@@ -16,5 +16,6 @@
     "http",
     "net"
   ],
-  "eslint.useFlatConfig": true
+  "eslint.useFlatConfig": true,
+  "deno.enable": true
 }
