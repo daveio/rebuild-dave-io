@@ -5,10 +5,11 @@
       v-if="!error && !emailAddress"
       class="text-yellow font-mono"
     >
+      Checking your browser...
       <VueSpinnerAudio
         size="20"
         color="yellow"
-      /> Checking your browser...
+      />
     </span>
     <span
       v-else-if="error"
