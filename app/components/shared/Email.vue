@@ -5,7 +5,7 @@
       v-if="!error && !emailAddress"
       class="text-yellow font-mono"
     >
-      <VueSpinner
+      <VueSpinnerAudio
         size="20"
         color="yellow"
       /> Checking your browser...
@@ -33,7 +33,7 @@
   setup
 >
   import {
-    VueSpinner
+    VueSpinnerAudio
   } from "vue3-spinners"
 
   // Auto-imports are available in Nuxt, no need to import ref, watch, etc.
