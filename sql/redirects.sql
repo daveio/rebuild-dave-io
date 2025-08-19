@@ -1,5 +1,10 @@
 -- Redirects table initialization
 
+CREATE TABLE 'redirects' (
+  'slug' text PRIMARY KEY NOT NULL,
+  'destination' text NOT NULL
+)
+
 INSERT INTO redirects (slug, destination) VALUES
   ('blog', 'https://blog.dave.io'),
   ('bluesky', 'https://bsky.app/profile/dave.io'),
