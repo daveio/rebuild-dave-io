@@ -11,8 +11,8 @@ export default defineEventHandler(async (event) => {
     return error(event, {}, "Slug is required", 400)
   }
   const redirect = await db.select().from(redirects).where(eq(redirects.slug, slug)).limit(1)
-  if (!redirect) {
-    return error(event, {}, "Redirect/ not found", 404)
+  if (redirect.length === 0) {
+    return error(event, {}, "Redirect not found", 404)
   }
   console.log(`Redirecting to ${redirect[0].destination}`)
   await sendRedirect(event, redirect[0].destination, 302)
