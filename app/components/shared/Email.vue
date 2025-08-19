@@ -5,9 +5,9 @@
       v-if="!error && !emailAddress"
       class="text-yellow font-mono"
     >
-      <Icon
-        name="i-oui-inspect"
-        class="animate-ping ml-2"
+      <VueSpinner
+        size="20"
+        color="yellow"
       /> Checking your browser...
     </span>
     <span
@@ -32,6 +32,10 @@
   lang="ts"
   setup
 >
+  import {
+    VueSpinner
+  } from "vue3-spinners"
+
   // Auto-imports are available in Nuxt, no need to import ref, watch, etc.
   const token = ref<string>()
   const emailAddress = ref<string>()
@@ -53,7 +57,12 @@
           body: { token: newToken }
         })
 
-        emailAddress.value = response.email
+        const resp = response as { data?: { email?: string } }
+        if (resp.data && typeof resp.data.email === "string") {
+          emailAddress.value = resp.data.email
+        } else {
+          error.value = "Email not found in response"
+        }
       } catch {
         error.value = "Browser integrity check failed"
       } finally {
