@@ -26,9 +26,9 @@ export function logResponse(event: H3Event, data: unknown, code: number, error?:
     headers,
     error,
   })
-  if (error !== null) {
-    console.log(logJSON)
-  } else {
+  if (error) {
     console.error(logJSON)
+  } else {
+    console.log(logJSON)
   }
 }

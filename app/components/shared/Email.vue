@@ -5,9 +5,10 @@
       v-if="!error && !emailAddress"
       class="text-yellow font-mono"
     >
-      <VueSpinnerDots
-        size="40"
-        color="yellow"
+      Checking your browser...
+      <Icon
+        name="i-oui-inspect"
+        class="animate-ping ml-2"
       />
     </span>
     <span
@@ -32,7 +33,6 @@
   lang="ts"
   setup
 >
-  import { VueSpinnerDots } from "vue3-spinners"
 
   // Auto-imports are available in Nuxt, no need to import ref, watch, etc.
   const token = ref<string>()
