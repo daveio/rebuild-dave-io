@@ -23,7 +23,6 @@
     "lodash-es": "^4.17.21",
     "magic-regexp": "^0.10.0",
     "nuxt": "^4.0.3",
-    "nuxt-link-checker": "4.3.1",
     "nuxt-security": "2.3.0",
     "openai": "^5.13.1",
     "tailwindcss": "^4.1.12",

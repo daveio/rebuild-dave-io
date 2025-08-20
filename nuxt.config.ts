@@ -73,7 +73,6 @@ export default defineNuxtConfig({
     "@sentry/nuxt/module",
     "magic-regexp/nuxt",
     "nitro-cloudflare-dev",
-    "nuxt-link-checker",
     "nuxt-security",
   ],
   nitro: {
