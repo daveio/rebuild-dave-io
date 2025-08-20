@@ -35,7 +35,7 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
-    "@anthropic-ai/claude-code": "^1.0.84",
+    "@anthropic-ai/claude-code": "^1.0.85",
     "@catppuccin/daisyui": "^2.1.1",
     "@catppuccin/tailwindcss": "^1.0.0",
     "@iconify-json/heroicons": "^1.2.2",
