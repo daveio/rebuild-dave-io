@@ -7,8 +7,9 @@
     >
       Checking your browser...
       <Icon
-        name="i-oui-inspect"
+        name="i-oui-compute"
         class="animate-ping ml-2"
+        size="0.75em"
       />
     </span>
     <span
