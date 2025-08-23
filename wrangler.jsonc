@@ -32,6 +32,10 @@
   "keep_names": true,
   "kv_namespaces": [
     {
+      "binding": "CACHE",
+      "id": "5bf2560b1ef9476fa1dc97d50f39b8ed"
+    },
+    {
       "binding": "KV",
       "id": "bc851a0a2c0e4d2fbd44cb5612f9c96c"
     }
