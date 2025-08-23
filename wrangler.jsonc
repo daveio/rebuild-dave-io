@@ -67,6 +67,19 @@
     }
   ],
   "send_metrics": true,
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "AI",
+        "namespace_id": "613834656",
+        "simple": {
+          "limit": 5, // max requests per period
+          "period": 60 // can be 10 or 60, in seconds
+        },
+        "type": "ratelimit"
+      }
+    ]
+  },
   "upload_source_maps": true,
   "vars": {
     "CLOUDFLARE_ACCOUNT_ID": "def50674a738cee409235f71819973cf",
