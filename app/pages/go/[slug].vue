@@ -3,5 +3,4 @@
   <div>
     <p>If you see this, something has gone comically wrong.</p>
   </div>
-
 </template>

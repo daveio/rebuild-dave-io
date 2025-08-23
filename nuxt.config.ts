@@ -74,6 +74,7 @@ export default defineNuxtConfig({
     "magic-regexp/nuxt",
     "nitro-cloudflare-dev",
     "nuxt-security",
+    "nuxt-gtag",
   ],
   nitro: {
     cloudflare: {

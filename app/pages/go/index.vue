@@ -10,10 +10,7 @@
 
     <div class="alert alert-error border-red border-2 bg-surface1/60 backdrop-blur-sm">
       <div class="flex items-start space-x-3">
-        <Icon
-          name="i-mdi-skull"
-          class="text-red w-6 h-6 mt-0.5 flex-shrink-0"
-        />
+        <Icon name="i-mdi-skull" class="text-red w-6 h-6 mt-0.5 flex-shrink-0" />
         <div class="text-left">
           <h3 class="text-red font-bold text-xl">Access Denied</h3>
           <p class="text-subtext0 mt-1 leading-relaxed">You didn't say the magic word!</p>
@@ -24,21 +21,18 @@
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-  import BackToHomeButton from "~/components/shared/BackToHomeButton.vue"
+<script setup lang="ts">
+import BackToHomeButton from "~/components/shared/BackToHomeButton.vue"
 
-  usePageSetup({
-    title: "go",
-    keywords: ["access denied", "magic word", "jurassic park", "dennis nedry"],
-    description: "You didn't say the magic word!",
-    icon: "/images/dave-io-icon-128.png",
-    image: "/images/dave-io-social-1280.png"
-  })
+usePageSetup({
+  title: "go",
+  keywords: ["access denied", "magic word", "jurassic park", "dennis nedry"],
+  description: "You didn't say the magic word!",
+  icon: "/images/dave-io-icon-128.png",
+  image: "/images/dave-io-social-1280.png"
+})
 
-  onMounted(() => {
-    // Page mounted
-  })
+onMounted(() => {
+  // Page mounted
+})
 </script>

@@ -8,10 +8,7 @@
         :to="resource.url"
         class="inline-flex items-center justify-start px-4 py-3 border border-cyan-400 text-cyan-300 bg-transparent rounded-md font-medium hover:bg-cyan-400/10 transition-colors"
       >
-        <Icon
-          :name="resource.icon"
-          class="mr-2 w-5 h-5"
-        />
+        <Icon :name="resource.icon" class="mr-2 w-5 h-5" />
         <strong>{{ resource.title }}</strong>
       </NuxtLink>
     </div>
@@ -24,46 +21,43 @@
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-  interface Resource {
-    title: string
-    url: string
-    icon: string
-  }
+<script setup lang="ts">
+interface Resource {
+  title: string
+  url: string
+  icon: string
+}
 
-  const resources: Resource[] = [
-    {
-      title: "The Language of Gender",
-      url: "https://www.genderspectrum.org/the-language-of-gender/",
-      icon: "i-mdi-book-open-page-variant"
-    },
-    {
-      title: "Understanding Gender",
-      url: "https://www.genderspectrum.org/quick-links/understanding-gender/",
-      icon: "i-mdi-lightbulb"
-    },
-    {
-      title: "Teen Vogue Guide",
-      url: "https://www.teenvogue.com/story/what-is-non-binary-gender",
-      icon: "i-mdi-newspaper"
-    },
-    {
-      title: "For Parents",
-      url: "https://lifeoutsidethebinary.com/post/96149381358/so-your-child-is-nonbinary-a-guide-for-parents",
-      icon: "i-mdi-account-child"
-    },
-    {
-      title: "Psychology Guide",
-      url: "https://www.verywellmind.com/what-does-it-mean-to-be-non-binary-or-have-non-binary-gender-4172702",
-      icon: "i-mdi-brain"
-    },
-    {
-      title: "Wikipedia: Non-binary gender",
-      url: "https://en.wikipedia.org/wiki/Non-binary_gender",
-      icon: "i-mdi-wikipedia"
-    }
-  ]
+const resources: Resource[] = [
+  {
+    title: "The Language of Gender",
+    url: "https://www.genderspectrum.org/the-language-of-gender/",
+    icon: "i-mdi-book-open-page-variant"
+  },
+  {
+    title: "Understanding Gender",
+    url: "https://www.genderspectrum.org/quick-links/understanding-gender/",
+    icon: "i-mdi-lightbulb"
+  },
+  {
+    title: "Teen Vogue Guide",
+    url: "https://www.teenvogue.com/story/what-is-non-binary-gender",
+    icon: "i-mdi-newspaper"
+  },
+  {
+    title: "For Parents",
+    url: "https://lifeoutsidethebinary.com/post/96149381358/so-your-child-is-nonbinary-a-guide-for-parents",
+    icon: "i-mdi-account-child"
+  },
+  {
+    title: "Psychology Guide",
+    url: "https://www.verywellmind.com/what-does-it-mean-to-be-non-binary-or-have-non-binary-gender-4172702",
+    icon: "i-mdi-brain"
+  },
+  {
+    title: "Wikipedia: Non-binary gender",
+    url: "https://en.wikipedia.org/wiki/Non-binary_gender",
+    icon: "i-mdi-wikipedia"
+  }
+]
 </script>

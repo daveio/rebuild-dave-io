@@ -13,19 +13,13 @@
         class="inline-flex items-center px-4 py-2 border border-blue-600 text-blue-400 bg-transparent rounded-md font-medium hover:bg-blue-600/10 disabled:opacity-50 disabled:cursor-not-allowed"
         disabled
       >
-        <Icon
-          name="i-mdi-robot-excited"
-          class="mr-2 w-5 h-5"
-        />
+        <Icon name="i-mdi-robot-excited" class="mr-2 w-5 h-5" />
         Launch Chat (Coming Soon)
       </button>
     </div>
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-  // No props needed for this placeholder component
+<script setup lang="ts">
+// No props needed for this placeholder component
 </script>

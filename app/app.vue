@@ -1,8 +1,5 @@
 <template>
-  <div
-    data-theme="mocha"
-    class="mocha"
-  >
+  <div data-theme="mocha" class="mocha">
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator />
     <NuxtLayout v-bind="layoutProps">
@@ -11,36 +8,33 @@
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-  declare global {
-    interface Window {
-      SentryToolbar?: {
-        init(config: { organizationSlug: string; projectIdOrSlug: string }): void
-      }
+<script setup lang="ts">
+declare global {
+  interface Window {
+    SentryToolbar?: {
+      init(config: { organizationSlug: string; projectIdOrSlug: string }): void
     }
   }
+}
 
-  useScript("https://browser.sentry-cdn.com/sentry-toolbar/latest/toolbar.min.js", {
-    use() {
-      if (window.SentryToolbar) {
-        window.SentryToolbar.init({
-          organizationSlug: "daveio",
-          projectIdOrSlug: "rebuild-dave-io"
-        })
-      }
-      return null
+useScript("https://browser.sentry-cdn.com/sentry-toolbar/latest/toolbar.min.js", {
+  use() {
+    if (window.SentryToolbar) {
+      window.SentryToolbar.init({
+        organizationSlug: "daveio",
+        projectIdOrSlug: "rebuild-dave-io"
+      })
     }
-  })
-
-  // Set default color mode preference
-  const colorMode = useColorMode()
-  if (import.meta.client) {
-    colorMode.preference = "dark"
+    return null
   }
+})
 
-  const route = useRoute()
-  const layoutProps = computed(() => route.meta.layoutProps ?? {})
+// Set default color mode preference
+const colorMode = useColorMode()
+if (import.meta.client) {
+  colorMode.preference = "dark"
+}
+
+const route = useRoute()
+const layoutProps = computed(() => route.meta.layoutProps ?? {})
 </script>

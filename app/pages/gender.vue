@@ -12,10 +12,7 @@
       </div>
 
       <!-- Non-What Section -->
-      <GenderInfoCard
-        title="🤔 Non-What?"
-        color="pink"
-      >
+      <GenderInfoCard title="🤔 Non-What?" color="pink">
         <p class="text-text leading-relaxed">
           <strong class="text-pink">Non-binary</strong> is an umbrella term for gender identities that don't fit neatly
           into the categories of "man" or "woman." It's about existing outside the traditional gender binary.
@@ -43,10 +40,7 @@
       </GenderInfoCard>
 
       <!-- Plot Twist Section -->
-      <GenderInfoCard
-        title="😅 Plot Twist: I Thought I Was Cis"
-        color="blue"
-      >
+      <GenderInfoCard title="😅 Plot Twist: I Thought I Was Cis" color="blue">
         <p class="text-text leading-relaxed">
           First, a definition - <strong class="text-blue">cisgender</strong>, or <strong class="text-blue">cis</strong>,
           people have an assigned gender at birth matching their actual gender. It's the opposite of transgender.
@@ -72,10 +66,7 @@
       </GenderInfoCard>
 
       <!-- Transgender Question Section -->
-      <GenderInfoCard
-        title="🏳️‍⚧️ So Are Non-Binary People Transgender?"
-        color="purple"
-      >
+      <GenderInfoCard title="🏳️‍⚧️ So Are Non-Binary People Transgender?" color="purple">
         <p class="text-text leading-relaxed">
           Transgender means your gender identity differs from what was assigned at birth. Since I was assigned male at
           birth but identify as non-binary, that makes me transgender.
@@ -99,10 +90,7 @@
       </GenderInfoCard>
 
       <!-- Binary Myth Section -->
-      <GenderInfoCard
-        title='🙄 "But There Are Only Two Genders!"'
-        color="red"
-      >
+      <GenderInfoCard title='🙄 "But There Are Only Two Genders!"' color="red">
         <p class="text-text leading-relaxed">
           I think it's very likely that you're conflating <strong class="text-red">sex</strong> and
           <strong class="text-red">gender</strong> here. Sex is determined by your genes, and relates to the biological
@@ -138,20 +126,14 @@
         <p class="text-text leading-relaxed">The list goes on.</p>
         <div class="bg-red/20 p-4 rounded-lg border border-red/30 space-y-2">
           <p class="text-red">
-            <Icon
-              name="i-heroicons-exclamation-circle"
-              class="font-bold mr-2 text-red"
-            /> Even biology isn't as binary
+            <Icon name="i-heroicons-exclamation-circle" class="font-bold mr-2 text-red" /> Even biology isn't as binary
             as we once thought - intersex conditions affect about 1 in 2000 births.
           </p>
         </div>
       </GenderInfoCard>
 
       <!-- Grammar Lesson Section -->
-      <GenderInfoCard
-        title='"They" Is Plural, Not Singular!'
-        color="green"
-      >
+      <GenderInfoCard title='"They" Is Plural, Not Singular!' color="green">
         <p class="text-text leading-relaxed">
           <strong class="text-green">The singular "they" has been used in English for over 600 years</strong>.
         </p>
@@ -180,20 +162,14 @@
         </p>
         <div class="bg-green/20 p-4 rounded-lg border border-green/30 space-y-2">
           <p class="text-green">
-            <Icon
-              name="i-heroicons-exclamation-circle"
-              class="font-bold mr-2 text-green"
-            />Shakespeare used singular
+            <Icon name="i-heroicons-exclamation-circle" class="font-bold mr-2 text-green" />Shakespeare used singular
             "they" in his plays.
           </p>
         </div>
       </GenderInfoCard>
 
       <!-- Resources Section -->
-      <GenderInfoCard
-        title="💭 More Questions?"
-        color="cyan"
-      >
+      <GenderInfoCard title="💭 More Questions?" color="cyan">
         <GenderResourcesGrid />
       </GenderInfoCard>
 
@@ -206,38 +182,35 @@
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-  import BackToHomeButton from "~/components/shared/BackToHomeButton.vue"
-  import GenderChatbotPlaceholder from "~/components/gender/GenderChatbotPlaceholder.vue"
-  import GenderInfoCard from "~/components/gender/GenderInfoCard.vue"
-  import GenderResourcesGrid from "~/components/gender/GenderResourcesGrid.vue"
-  import GenderFloatingChatButton from "~/components/gender/GenderFloatingChatButton.vue"
+<script setup lang="ts">
+import BackToHomeButton from "~/components/shared/BackToHomeButton.vue"
+import GenderChatbotPlaceholder from "~/components/gender/GenderChatbotPlaceholder.vue"
+import GenderInfoCard from "~/components/gender/GenderInfoCard.vue"
+import GenderResourcesGrid from "~/components/gender/GenderResourcesGrid.vue"
+import GenderFloatingChatButton from "~/components/gender/GenderFloatingChatButton.vue"
 
-  usePageSetup({
-    title: "gender",
-    keywords: [
-      "non-binary",
-      "pronouns",
-      "they/them",
-      "gender identity",
-      "LGBTQ+",
-      "transgender",
-      "enby",
-      "inclusion",
-      "respect",
-      "gender diversity"
-    ],
-    description: "Understanding non-binary gender identity and they/them pronouns - a friendly educational guide"
-  })
+usePageSetup({
+  title: "gender",
+  keywords: [
+    "non-binary",
+    "pronouns",
+    "they/them",
+    "gender identity",
+    "LGBTQ+",
+    "transgender",
+    "enby",
+    "inclusion",
+    "respect",
+    "gender diversity"
+  ],
+  description: "Understanding non-binary gender identity and they/them pronouns - a friendly educational guide"
+})
 
-  onMounted(() => {
-    // Page mounted
-  })
+onMounted(() => {
+  // Page mounted
+})
 </script>
 
 <style scoped>
-  /* Additional styling if needed */
+/* Additional styling if needed */
 </style>

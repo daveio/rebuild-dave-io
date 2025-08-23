@@ -4,11 +4,8 @@
   </div>
 </template>
 
-<script
-  lang="ts"
-  setup
->
-  useRobotsRule("noindex, nofollow")
+<script lang="ts" setup>
+useRobotsRule("noindex, nofollow")
 </script>
 
 <style></style>
