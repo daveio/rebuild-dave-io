@@ -70,7 +70,7 @@
   "scripts": {
     "build": "bun run nuxt build",
     "deploy": "bun run-s build deploy:wrangler",
-    "deploy:nonprod": "bun run-s build deploy:nonprod:wranglerpp",
+    "deploy:nonprod": "bun run-s build deploy:nonprod:wrangler",
     "deploy:nonprod:wrangler": "bun run wrangler versions upload",
     "deploy:wrangler": "bun run wrangler deploy",
     "dev": "bun run nuxt dev",
