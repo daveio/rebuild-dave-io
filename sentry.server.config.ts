@@ -1,8 +1,8 @@
 import * as Sentry from "@sentry/nuxt"
 
-// Determine environment based on NUXT_PUBLIC_SENTRY_ENVIRONMENT
+// Determine environment based on SENTRY_ENVIRONMENT
 // Falls back to 'development' if not set or not 'production'
-const environment = process.env.NUXT_PUBLIC_SENTRY_ENVIRONMENT === "production" ? "production" : "development"
+const environment = process.env.SENTRY_ENVIRONMENT === "production" ? "production" : "development"
 
 // Adjust sample rates based on environment
 const isProduction = environment === "production"
