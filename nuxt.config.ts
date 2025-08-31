@@ -142,6 +142,7 @@ export default defineNuxtConfig({
   site: {
     name: "Rebuild of dave.io",
     url: "https://rebuild.dave.io",
+    indexable: true,
   },
   sourcemap: {
     client: "hidden",

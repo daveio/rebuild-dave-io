@@ -14,7 +14,6 @@ export function usePageSetup({
   const fullTitle = `${title} @ dave.io`
 
   useHead({
-    title: title,
     link: [
       {
         rel: "icon",
@@ -44,7 +43,7 @@ export function usePageSetup({
     ogImage: image || "/images/social.webp",
     ogTitle: fullTitle,
     ogType: "website",
-    title: fullTitle,
+    title: title,
     twitterCard: "summary_large_image",
     twitterDescription: description || "Personal site of Dave Williams",
     twitterImage: image || "/images/social.webp",
