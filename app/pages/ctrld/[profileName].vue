@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center items-center min-h-screen">
-    <div class="card w-96 bg-base-100 shadow-xl">
+  <div class="flex justify-center items-center pt-6">
+    <div class="card bg-base-100 shadow-xl">
       <div class="card-body">
         <h1 class="card-title">Unblock Domain</h1>
         <p>
@@ -84,7 +84,21 @@ const statusClass = ref("alert-success")
 if (!validProfiles.includes(profile.value)) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Profile not found"
+    statusMessage: "You need to specify a valid profile"
+  })
+}
+
+if (!domain.value) {
+  throw createError({
+    statusCode: 400,
+    statusMessage: "You need to specify a domain"
+  })
+}
+
+if (!auth.value) {
+  throw createError({
+    statusCode: 401,
+    statusMessage: "You need to at least TRY to authenticate"
   })
 }
 
@@ -112,8 +126,12 @@ async function unblockDomain() {
 
     statusMessage.value = `Successfully unblocked ${domain.value}.`
     statusClass.value = "alert-success"
-  } catch (e: any) {
-    statusMessage.value = `Error: ${e.message}`
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      statusMessage.value = `Error: ${e.message}`
+    } else {
+      statusMessage.value = "Error: An unknown error occurred."
+    }
     statusClass.value = "alert-error"
   } finally {
     loading.value = false
