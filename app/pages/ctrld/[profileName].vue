@@ -1,27 +1,27 @@
 <template>
   <div>
-    <p>This is the UI for {{ profileName }}.</p>
+    <p>Domain: {{ domain }}</p>
+    <p>Auth: {{ auth }}</p>
+    <p>Profile: {{ profile }}</p>
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-  const profileName = useRoute().params.profileName || ""
+<script setup lang="ts">
+const route = useRoute()
+const validProfiles = ["main", "permissive", "parents"]
+const profile = computed(() => route.params.profileName as string)
+const domain = computed(() => route.query.domain as string)
+const auth = computed(() => route.query.auth as string)
 
-  const validProfiles = ["main", "permissive", "parents"]
-
-  if (!validProfiles.includes(profileName as string)) {
-    throw createError({
-      statusCode: 404,
-      statusMessage: "Profile not found"
-    })
-  }
-
-  usePageSetup({
-    title: `ControlD for ${profileName}`,
-    description: `Unblock a domain for ${profileName}`
+if (!validProfiles.includes(profile.value)) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Profile not found"
   })
+}
 
+usePageSetup({
+  title: `ControlD for ${profile.value}`,
+  description: `Unblock a domain for ${profile.value}`
+})
 </script>
