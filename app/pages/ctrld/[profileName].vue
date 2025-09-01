@@ -1,24 +1,68 @@
 <template>
-  <div class="container">
-    <h1>Unblock Domain</h1>
-    <div class="card">
-      <p>
-        You are about to unblock the following domain for the <strong>{{ profile }}</strong> profile:
-      </p>
-      <p><strong>Domain:</strong> {{ domain }}</p>
-
-      <div class="warning">
+  <div class="flex justify-center items-center min-h-screen">
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h1 class="card-title">Unblock Domain</h1>
         <p>
-          <strong>Think before you click!</strong> Is this block protecting you from something? Unblocking could expose
-          you to risks.
+          You are about to unblock <strong>{{ domain }}</strong> for the <strong>{{ profile }}</strong> profile.
         </p>
+
+        <div role="alert" class="alert alert-warning mt-4">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            />
+          </svg>
+          <span><strong>Think before you click!</strong> Is this block protecting you?</span>
+        </div>
+
+        <div class="card-actions justify-end mt-4">
+          <button class="btn btn-primary" :disabled="loading" @click="unblockDomain">
+            <span v-if="loading" class="loading loading-spinner"></span>
+            {{ loading ? "Unblocking..." : "Unblock Domain" }}
+          </button>
+        </div>
+
+        <div v-if="statusMessage" role="alert" :class="['alert mt-4', statusClass]">
+          <svg
+            v-if="statusClass === 'alert-success'"
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <svg
+            v-else
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span>{{ statusMessage }}</span>
+        </div>
       </div>
-
-      <button :disabled="loading" @click="unblockDomain">
-        {{ loading ? "Unblocking..." : "Unblock Domain" }}
-      </button>
-
-      <p v-if="statusMessage" class="status-message">{{ statusMessage }}</p>
     </div>
   </div>
 </template>
@@ -35,6 +79,7 @@ const auth = computed(() => route.query.auth as string)
 
 const loading = ref(false)
 const statusMessage = ref("")
+const statusClass = ref("alert-success")
 
 if (!validProfiles.includes(profile.value)) {
   throw createError({
@@ -66,54 +111,12 @@ async function unblockDomain() {
     }
 
     statusMessage.value = `Successfully unblocked ${domain.value}.`
+    statusClass.value = "alert-success"
   } catch (e: any) {
     statusMessage.value = `Error: ${e.message}`
+    statusClass.value = "alert-error"
   } finally {
     loading.value = false
   }
 }
 </script>
-
-<style scoped>
-.container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem;
-  font-family: sans-serif;
-}
-.card {
-  border: 1px solid #e2e8f0;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  margin-top: 1rem;
-  background-color: #fff;
-}
-.warning {
-  background-color: #fffbe6;
-  border: 1px solid #ffe58f;
-  border-radius: 0.25rem;
-  padding: 1rem;
-  margin: 1.5rem 0;
-}
-button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  background-color: #3182ce;
-  color: white;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  font-size: 1rem;
-}
-button:disabled {
-  background-color: #a0aec0;
-  cursor: not-allowed;
-}
-.status-message {
-  margin-top: 1.5rem;
-  font-weight: bold;
-  padding: 1rem;
-  border-radius: 0.25rem;
-  background-color: #f0fff4;
-  border: 1px solid #9ae6b4;
-}
-</style>
