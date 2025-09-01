@@ -23,11 +23,15 @@
           </svg>
           <span><strong>Think before you click!</strong> Is this block protecting you?</span>
         </div>
-
-        <div class="card-actions justify-end mt-4">
-          <button class="btn btn-primary" :disabled="loading" @click="unblockDomain">
-            <span v-if="loading" class="loading loading-spinner"></span>
-            {{ loading ? "Unblocking..." : "Unblock Domain" }}
+        <p>Coming 'soon': AI advice about whether a domain looks sketchy</p>
+        <div class="card-actions justify-end mt-4 space-x-2">
+          <button class="btn btn-primary" :disabled="loading" @click="unblockDomain('temporary')">
+            <span v-if="loading && duration === 'temporary'" class="loading loading-spinner"></span>
+            Unblock for 15 mins
+          </button>
+          <button class="btn btn-error btn-outline" :disabled="loading" @click="unblockDomain('permanent')">
+            <span v-if="loading && duration === 'permanent'" class="loading loading-spinner"></span>
+            Unblock Permanently
           </button>
         </div>
 
@@ -80,6 +84,7 @@ const auth = computed(() => route.query.auth as string)
 const loading = ref(false)
 const statusMessage = ref("")
 const statusClass = ref("alert-success")
+const duration = ref<"temporary" | "permanent" | null>(null)
 
 if (!validProfiles.includes(profile.value)) {
   throw createError({
@@ -107,16 +112,18 @@ usePageSetup({
   description: `Unblock a domain for ${profile.value}`
 })
 
-async function unblockDomain() {
+async function unblockDomain(unblockType: "temporary" | "permanent") {
   loading.value = true
+  duration.value = unblockType
   statusMessage.value = ""
   try {
-    const { error } = await useFetch("/api/ctrld", {
+    const { error } = await useFetch("/api/ctrld/unblock", {
       method: "POST",
       body: {
         domain: domain.value,
         auth: auth.value,
-        profile: profile.value
+        profile: profile.value,
+        duration: unblockType
       }
     })
 
@@ -135,6 +142,7 @@ async function unblockDomain() {
     statusClass.value = "alert-error"
   } finally {
     loading.value = false
+    duration.value = null
   }
 }
 </script>
