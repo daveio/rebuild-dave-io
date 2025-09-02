@@ -1,13 +1,22 @@
 <template>
+  <!-- Main container with centered layout -->
   <div class="flex justify-center items-center pt-6">
+    <!-- Card container for the unblock domain interface -->
     <div class="card bg-base-100 shadow-xl">
       <div class="card-body">
+        <!-- Page title -->
         <h1 class="card-title">Unblock Domain</h1>
+
+        <!-- Domain and profile information display -->
         <p>
           You are about to unblock <strong>{{ domain }}</strong> for the <strong>{{ profile }}</strong> profile.
         </p>
 
-        <div role="alert" class="alert alert-warning mt-4">
+        <!-- Warning alert about unblocking domains -->
+        <div
+          role="alert"
+          class="alert alert-warning mt-4"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="stroke-current shrink-0 h-6 w-6"
@@ -23,19 +32,46 @@
           </svg>
           <span><strong>Think before you click!</strong> Is this block protecting you?</span>
         </div>
+
+        <!-- Future feature placeholder -->
         <p>Coming 'soon': AI advice about whether a domain looks sketchy</p>
+
+        <!-- Action buttons for unblocking -->
         <div class="card-actions justify-end mt-4 space-x-2">
-          <button class="btn btn-primary" :disabled="loading" @click="unblockDomain('temporary')">
-            <span v-if="loading && duration === 'temporary'" class="loading loading-spinner"></span>
+          <!-- Temporary unblock button (15 minutes) -->
+          <button
+            class="btn btn-primary"
+            :disabled="loading"
+            @click="unblockDomain('temporary')"
+          >
+            <span
+              v-if="loading && duration === 'temporary'"
+              class="loading loading-spinner"
+            ></span>
             Unblock for 15 mins
           </button>
-          <button class="btn btn-error btn-outline" :disabled="loading" @click="unblockDomain('permanent')">
-            <span v-if="loading && duration === 'permanent'" class="loading loading-spinner"></span>
+
+          <!-- Permanent unblock button -->
+          <button
+            class="btn btn-error btn-outline"
+            :disabled="loading"
+            @click="unblockDomain('permanent')"
+          >
+            <span
+              v-if="loading && duration === 'permanent'"
+              class="loading loading-spinner"
+            ></span>
             Unblock Permanently
           </button>
         </div>
 
-        <div v-if="statusMessage" role="alert" :class="['alert mt-4', statusClass]">
+        <!-- Status message display with appropriate styling -->
+        <div
+          v-if="statusMessage"
+          role="alert"
+          :class="['alert mt-4', statusClass]"
+        >
+          <!-- Success icon -->
           <svg
             v-if="statusClass === 'alert-success'"
             xmlns="http://www.w3.org/2000/svg"
@@ -50,6 +86,8 @@
               d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
+
+          <!-- Error icon -->
           <svg
             v-else
             xmlns="http://www.w3.org/2000/svg"
@@ -71,78 +109,91 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, computed } from "vue"
+<script
+  setup
+  lang="ts"
+>
+  import { ref, computed } from "vue"
+  import type { unblockDuration, ctrldProfile, ctrldUnblockRequest } from "~~/shared/types/ctrld"
 
-const route = useRoute()
-const validProfiles = ["main", "permissive", "parents"]
+  // Get route information for dynamic parameters
+  const route = useRoute()
 
-const profile = computed(() => route.params.profileName as string)
-const domain = computed(() => route.query.domain as string)
-const auth = computed(() => route.query.auth as string)
+  // Computed properties from route parameters and query strings
+  const profile = computed(() => route.params.profileName as ctrldProfile)
+  const domain = computed(() => route.query.domain as string)
+  const auth = computed(() => route.query.auth as string)
 
-const loading = ref(false)
-const statusMessage = ref("")
-const statusClass = ref("alert-success")
-const duration = ref<"temporary" | "permanent" | null>(null)
+  // Reactive state for UI interactions
+  const loading = ref(false)                    // Loading state for buttons
+  const statusMessage = ref("")                 // User feedback message
+  const statusClass = ref("alert-success")      // CSS class for status styling
+  const duration = ref<unblockDuration>(null)  // Current unblock operation type
 
-if (!validProfiles.includes(profile.value)) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "You need to specify a valid profile"
-  })
-}
-
-if (!domain.value) {
-  throw createError({
-    statusCode: 400,
-    statusMessage: "You need to specify a domain"
-  })
-}
-
-if (!auth.value) {
-  throw createError({
-    statusCode: 401,
-    statusMessage: "You need to at least TRY to authenticate"
-  })
-}
-
-usePageSetup({
-  title: `ControlD for ${profile.value}`,
-  description: `Unblock a domain for ${profile.value}`
-})
-
-async function unblockDomain(unblockType: "temporary" | "permanent") {
-  loading.value = true
-  duration.value = unblockType
-  statusMessage.value = ""
-  try {
-    const { error } = await useFetch("/api/ctrld/unblock", {
-      method: "POST",
-      body: {
-        domain: domain.value,
-        auth: auth.value,
-        profile: profile.value,
-        duration: unblockType
-      }
+  // Validation: Ensure a domain is specified in the query
+  if (!domain.value) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: "You need to specify a domain"
     })
-
-    if (error.value) {
-      throw new Error(error.value.statusMessage || "An unknown error occurred.")
-    }
-
-    statusMessage.value = `Successfully unblocked ${domain.value}.`
-    statusClass.value = "alert-success"
-  } catch (e: unknown) {
-    if (e instanceof Error) {
-      statusMessage.value = `Error: ${e.message}`
-    } else {
-      statusMessage.value = "Error: An unknown error occurred."
-    }
-    statusClass.value = "alert-error"
-  } finally {
-    loading.value = false
-    duration.value = null
   }
-}
+
+  // Validation: Ensure authentication token is provided
+  if (!auth.value) {
+    throw createError({
+      statusCode: 401,
+      statusMessage: "You need to at least TRY to authenticate"
+    })
+  }
+
+  // Set up page metadata and SEO
+  usePageSetup({
+    title: `ControlD for ${profile.value}`,
+    description: `Unblock a domain for ${profile.value}`
+  })
+
+  /**
+   * Unblocks a domain for the specified ControlD profile
+   * @param unblockType - Whether to unblock temporarily (15 mins) or permanently
+   */
+  async function unblockDomain(unblockType: unblockDuration) {
+    // Set loading state and track current operation
+    loading.value = true
+    duration.value = unblockType
+    statusMessage.value = ""
+
+    try {
+      // Make API call to unblock the domain
+      const { error } = await useFetch("/api/ctrld/unblock", {
+        method: "POST",
+        body: {
+          domain: domain.value,
+          auth: auth.value,
+          profile: profile.value,
+          duration: unblockType
+        } as ctrldUnblockRequest
+      })
+
+      // Handle API errors
+      if (error.value) {
+        throw new Error(error.value.statusMessage || "An unknown error occurred.")
+      }
+
+      // Success feedback
+      statusMessage.value = `Successfully unblocked ${domain.value}.`
+      statusClass.value = "alert-success"
+    } catch (e: unknown) {
+      // Error handling with user-friendly messages
+      if (e instanceof Error) {
+        statusMessage.value = `Error: ${e.message}`
+      } else {
+        statusMessage.value = "Error: An unknown error occurred."
+      }
+      statusClass.value = "alert-error"
+    } finally {
+      // Reset loading state regardless of outcome
+      loading.value = false
+      duration.value = null
+    }
+  }
 </script>
