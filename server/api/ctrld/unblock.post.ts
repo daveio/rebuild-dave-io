@@ -1,5 +1,5 @@
 import { ok } from "../../utils/response"
-import { DateTime } from "luxon"
+import { unblockDomain } from "../../utils/ctrld"
 import type { ctrldUnblockRequest } from "~~/shared/types/ctrld"
 
 export default defineEventHandler(async (event) => {
@@ -27,32 +27,7 @@ export default defineEventHandler(async (event) => {
   // let's roll
 
   try {
-    let expiry: number = 0
-
-    if (!permanent) {
-      expiry = DateTime.now().plus({ minutes: 15 }).toUnixInteger()
-    }
-
-    const body: { do: 1; status: 1; hostnames: string[]; ttl?: number } = {
-      do: 1,
-      status: 1,
-      hostnames: [domain],
-    }
-
-    if (!permanent) {
-      body.ttl = expiry
-    }
-
-    const response = await $fetch(`https://api.controld.com/profiles/${profileId}/rules`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${useRuntimeConfig(event).ctrldApiKey}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body,
-    })
-
+    const response = await unblockDomain({ domain, profileId, permanent }, useRuntimeConfig(event).ctrldApiKey)
     return ok(event, { message: "Override created successfully", data: response })
   } catch (err: unknown) {
     return error(event, {}, `Failed to create override: ${err instanceof Error ? err.message : "Unknown error"}`, 500)
