@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
     return error(event, {}, `Invalid duration: ${duration}`, 400)
   }
 
-  // duration may be null
+  // duration may be null, we just have to live with that and check for it
 
   // if auth matches runtimeconfig value
   //   if profile is in profile list (actually, let's make it a type in shared/ to avoid having to check it)
