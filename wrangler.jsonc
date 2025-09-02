@@ -54,13 +54,12 @@
     "mode": "smart"
   },
   "preview_urls": true,
-  // R2 disabled due to weird shit from Cloudflare, may be transient
-  // "r2_buckets": [
-  //   {
-  //     "binding": "BLOB",
-  //     "bucket_name": "rebuild-dave-io"
-  //   }
-  // ],
+  "r2_buckets": [
+    {
+      "binding": "BLOB",
+      "bucket_name": "rebuild-dave-io"
+    }
+  ],
   "routes": [
     {
       "custom_domain": true,
