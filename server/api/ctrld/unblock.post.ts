@@ -1,49 +1,62 @@
 import { ok } from "../../utils/response"
-import type { ctrldUnblockRequest, unblockDuration, ctrldProfile } from "~~/shared/types/ctrld"
+import { DateTime } from "luxon"
+import type { ctrldUnblockRequest } from "~~/shared/types/ctrld"
 
 export default defineEventHandler(async (event) => {
-  const { domain, auth, profile, duration } = await readBody<ctrldUnblockRequest>(event)
+  const { domain, auth, profile, permanent } = await readBody<ctrldUnblockRequest>(event)
 
-  console.log("Received unblock request:", { domain, auth, profile, duration })
+  console.log("Received unblock request:", { domain, auth, profile, permanent })
 
   if (auth !== useRuntimeConfig(event).ctrldAuthKey) {
     return error(event, {}, "Invalid auth", 401)
   }
 
   // Add runtime validation
-  const validProfiles: ctrldProfile[] = ["main", "permissive", "parents"]
-  const validDurations: unblockDuration[] = ["temporary", "permanent", null]
+  const profiles = {
+    main: "751219lhr3b5",
+    permissive: "753829amsizb",
+    parents: "753215amsnk2",
+  }
 
-  if (!validProfiles.includes(profile)) {
+  if (!profiles[profile as keyof typeof profiles]) {
     return error(event, {}, `Invalid profile: ${profile}`, 400)
   }
 
-  if (!validDurations.includes(duration)) {
-    return error(event, {}, `Invalid duration: ${duration}`, 400)
+  const profileId = profiles[profile as keyof typeof profiles]
+
+  // let's roll
+
+  try {
+    let expiry: number = 0
+
+    if (!permanent) {
+      expiry = DateTime.now().plus({ minutes: 15 }).toUnixInteger()
+    }
+
+    const body: { do: 1; status: 1; hostnames: string[]; ttl?: number } = {
+      do: 1,
+      status: 1,
+      hostnames: [domain],
+    }
+
+    if (!permanent) {
+      body.ttl = expiry
+    }
+
+    const response = await $fetch(`https://api.controld.com/profiles/${profileId}/rules`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${useRuntimeConfig(event).ctrldApiKey}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body,
+    })
+
+    return ok(event, { message: "Override created successfully", data: response })
+  } catch (err: unknown) {
+    return error(event, {}, `Failed to create override: ${err instanceof Error ? err.message : "Unknown error"}`, 500)
   }
 
-  // duration may be null, we just have to live with that and check for it
-
-  // if auth matches runtimeconfig value
-  //   if profile is in profile list (actually, let's make it a type in shared/ to avoid having to check it)
-  //   same thing with duration
-  //   anyway.
-  //   create override
-  //     if successful
-  //       return ok
-  //     if failed
-  //       return error
-  //
-  // ps:
-  // error syntax is return error(event, {}, "Unblock failed", 400)
-  //
-  // secret squirrelling has found an undocumented 'ttl' field in the api request to controld
-  // set it to the unix time of when you want the override to expire
-  // it remains to be seen if timezones affect this, experiment
-  // maybe unix time isn't affected by timezones. idk
-  // with luxon: dt.toUnixInteger(); // => 1492702320
-
-  return ok(event, {
-    message: "pong!",
-  })
+  return error(event, {}, "Something went comically wrong", 500)
 })

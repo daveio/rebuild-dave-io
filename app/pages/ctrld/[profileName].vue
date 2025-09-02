@@ -42,10 +42,10 @@
           <button
             class="btn btn-primary"
             :disabled="loading"
-            @click="unblockDomain('temporary')"
+            @click="unblockDomain(false)"
           >
             <span
-              v-if="loading && duration === 'temporary'"
+              v-if="loading && !permanent"
               class="loading loading-spinner"
             ></span>
             Unblock for 15 mins
@@ -55,10 +55,10 @@
           <button
             class="btn btn-error btn-outline"
             :disabled="loading"
-            @click="unblockDomain('permanent')"
+            @click="unblockDomain(true)"
           >
             <span
-              v-if="loading && duration === 'permanent'"
+              v-if="loading && permanent"
               class="loading loading-spinner"
             ></span>
             Unblock Permanently
@@ -114,7 +114,7 @@
   lang="ts"
 >
   import { ref, computed } from "vue"
-  import type { unblockDuration, ctrldProfile, ctrldUnblockRequest } from "~~/shared/types/ctrld"
+  import type { ctrldProfile, ctrldUnblockRequest } from "~~/shared/types/ctrld"
 
   // Get route information for dynamic parameters
   const route = useRoute()
@@ -128,7 +128,7 @@
   const loading = ref(false)                    // Loading state for buttons
   const statusMessage = ref("")                 // User feedback message
   const statusClass = ref("alert-success")      // CSS class for status styling
-  const duration = ref<unblockDuration>(null)  // Current unblock operation type
+  const permanent = ref(false)                  // Current unblock operation type
 
   // Validation: Ensure a domain is specified in the query
   if (!domain.value) {
@@ -156,11 +156,11 @@
    * Unblocks a domain for the specified ControlD profile
    * @param unblockType - Whether to unblock temporarily (15 mins) or permanently
    */
-  async function unblockDomain(unblockType: unblockDuration) {
+  async function unblockDomain(isPermanent: boolean) {
     // Set loading state and track current operation
     loading.value = true
-    duration.value = unblockType
     statusMessage.value = ""
+    permanent.value = isPermanent
 
     try {
       // Make API call to unblock the domain
@@ -170,7 +170,7 @@
           domain: domain.value,
           auth: auth.value,
           profile: profile.value,
-          duration: unblockType
+          permanent: isPermanent
         } as ctrldUnblockRequest
       })
 
@@ -193,7 +193,6 @@
     } finally {
       // Reset loading state regardless of outcome
       loading.value = false
-      duration.value = null
     }
   }
 </script>

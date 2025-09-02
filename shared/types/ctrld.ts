@@ -1,10 +1,10 @@
-export type unblockDuration = "temporary" | "permanent" | null
+export type unblockDuration = "temporary" | "permanent"
 
 export type ctrldProfile = "main" | "permissive" | "parents"
 
 export type ctrldUnblockRequest = {
   domain: string
   auth: string
-  profile: ctrldProfile
-  duration: unblockDuration
+  profile: string
+  permanent: boolean
 }

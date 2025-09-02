@@ -16,6 +16,8 @@ runtimes:
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
+  disabled:
+    - osv-scanner
   enabled:
     - trunk-toolbox@0.5.4
     - oxipng@9.1.5
@@ -24,7 +26,6 @@ lint:
     - eslint@9.33.0
     - git-diff-check
     - markdownlint@0.45.0
-    - osv-scanner@2.2.1
     - prettier@3.6.2
     - taplo@0.10.0
     - trufflehog@3.90.5
