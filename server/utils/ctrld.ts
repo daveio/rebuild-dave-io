@@ -24,7 +24,7 @@ export async function unblockDomain(request: UnblockRequest, apiKey: string) {
     body.ttl = expiry
   }
 
-  // TODO: expired unblocks don't get cleaned up, so we'll need to check for them before we write a new unblock
+  // TODO: expired unblocks don't get cleaned up, so we'll need to check for them before we write a new unblock. We can also avoid the double-block issue this way.
 
   return await $fetch(`https://api.controld.com/profiles/${request.profileId}/rules`, {
     method: "POST",
