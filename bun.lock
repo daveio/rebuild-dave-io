@@ -18,6 +18,7 @@
         "@pinia/nuxt": "^0.11.2",
         "@sentry/nuxt": "^10.8.0",
         "@tailwindcss/vite": "^4.1.12",
+        "@types/luxon": "^3.7.1",
         "@unhead/vue": "^2.0.14",
         "cloudflare": "^4.5.0",
         "daisyui": "^5.0.54",
@@ -25,6 +26,7 @@
         "drizzle-orm": "^0.44.5",
         "eslint": "^9.34.0",
         "lodash-es": "^4.17.21",
+        "luxon": "^3.7.1",
         "magic-regexp": "^0.10.0",
         "nuxt": "^4.0.3",
         "nuxt-gtag": "4.0.0",
@@ -829,6 +831,8 @@
     "@types/lodash": ["@types/lodash@4.17.20", "", {}, "sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA=="],
 
     "@types/lodash-es": ["@types/lodash-es@4.17.12", "", { "dependencies": { "@types/lodash": "*" } }, "sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ=="],
+
+    "@types/luxon": ["@types/luxon@3.7.1", "", {}, "sha512-H3iskjFIAn5SlJU7OuxUmTEpebK6TKB8rxZShDslBMZJ5u9S//KM1sbdAisiSrqwLQncVjnpi2OK2J51h+4lsg=="],
 
     "@types/mysql": ["@types/mysql@2.15.27", "", { "dependencies": { "@types/node": "*" } }, "sha512-YfWiV16IY0OeBfBCk8+hXKmdTKrKlwKN1MNKAPBu5JYxLwBEZl7QzeEpGnlZb3VMGJrrGmB84gXiH+ofs/TezA=="],
 
