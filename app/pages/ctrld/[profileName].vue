@@ -13,26 +13,13 @@
         </p>
 
         <!-- AI Domain Security Check -->
-        <DomainCheck
-          :auth="auth"
-          :domain="domain"
-        />
+        <DomainCheck :auth="auth" :domain="domain" />
 
         <!-- Action buttons and modal confirmation -->
-        <UnblockConfirmActions
-          :domain="domain"
-          :auth="auth"
-          :profile="profile"
-          @success="onSuccess"
-          @error="onError"
-        />
+        <UnblockConfirmActions :domain="domain" :auth="auth" :profile="profile" @success="onSuccess" @error="onError" />
 
         <!-- Status message display with appropriate styling -->
-        <div
-          v-if="statusMessage"
-          role="alert"
-          :class="['alert mt-4', statusClass]"
-        >
+        <div v-if="statusMessage" role="alert" :class="['alert mt-4', statusClass]">
           <!-- Success icon -->
           <svg
             v-if="statusClass === 'alert-success'"
@@ -71,56 +58,53 @@
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-  import { ref, computed } from "vue"
-  import type { ctrldProfile } from "~~/shared/types/ctrld"
-  import DomainCheck from "~/components/ctrld/DomainCheck.vue"
-  import UnblockConfirmActions from "~/components/ctrld/UnblockConfirmActions.vue"
+<script setup lang="ts">
+import { ref, computed } from "vue"
+import type { ctrldProfile } from "~~/shared/types/ctrld"
+import DomainCheck from "~/components/ctrld/DomainCheck.vue"
+import UnblockConfirmActions from "~/components/ctrld/UnblockConfirmActions.vue"
 
-  // Get route information for dynamic parameters
-  const route = useRoute()
+// Get route information for dynamic parameters
+const route = useRoute()
 
-  // Computed properties from route parameters and query strings
-  const profile = computed(() => route.params.profileName as ctrldProfile)
-  const domain = computed(() => route.query.domain as string)
-  const auth = computed(() => route.query.auth as string)
+// Computed properties from route parameters and query strings
+const profile = computed(() => route.params.profileName as ctrldProfile)
+const domain = computed(() => route.query.domain as string)
+const auth = computed(() => route.query.auth as string)
 
-  // Reactive state for UI interactions
-  const statusMessage = ref("")                 // User feedback message
-  const statusClass = ref("alert-success")      // CSS class for status styling
+// Reactive state for UI interactions
+const statusMessage = ref("") // User feedback message
+const statusClass = ref("alert-success") // CSS class for status styling
 
-  // Validation: Ensure a domain is specified in the query
-  if (!domain.value) {
-    throw createError({
-      statusCode: 400,
-      statusMessage: "You need to specify a domain"
-    })
-  }
-
-  // Validation: Ensure authentication token is provided
-  if (!auth.value) {
-    throw createError({
-      statusCode: 401,
-      statusMessage: "You need to at least TRY to authenticate"
-    })
-  }
-
-  // Set up page metadata and SEO
-  usePageSetup({
-    title: `ControlD for ${profile.value}`,
-    description: `Unblock a domain for ${profile.value}`
+// Validation: Ensure a domain is specified in the query
+if (!domain.value) {
+  throw createError({
+    statusCode: 400,
+    statusMessage: "You need to specify a domain"
   })
+}
 
-  function onSuccess(message: string) {
-    statusMessage.value = message
-    statusClass.value = "alert-success"
-  }
+// Validation: Ensure authentication token is provided
+if (!auth.value) {
+  throw createError({
+    statusCode: 401,
+    statusMessage: "You need to at least TRY to authenticate"
+  })
+}
 
-  function onError(message: string) {
-    statusMessage.value = message
-    statusClass.value = "alert-error"
-  }
+// Set up page metadata and SEO
+usePageSetup({
+  title: `ControlD for ${profile.value}`,
+  description: `Unblock a domain for ${profile.value}`
+})
+
+function onSuccess(message: string) {
+  statusMessage.value = message
+  statusClass.value = "alert-success"
+}
+
+function onError(message: string) {
+  statusMessage.value = message
+  statusClass.value = "alert-error"
+}
 </script>

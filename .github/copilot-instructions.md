@@ -443,3 +443,18 @@ return fresh
 ## Memories
 
 Memories added by CLIs will be appended here.
+
+### CtrlD Rule Management Update (2025-01-03)
+
+The CtrlD integration now automatically checks for and removes existing rules before creating new unblock rules. This prevents duplicate rules and resolves the "double-block" issue.
+
+**Implementation details:**
+
+- `server/utils/ctrld.ts` now includes:
+  - `getRules()` - Fetches all rules for a profile
+  - `findRuleByDomain()` - Checks if a rule exists for a specific domain
+  - `deleteRule()` - Removes a specific rule by ID
+  - Updated `unblockDomain()` - Now checks for and removes existing rules before creating new ones
+- Handles wildcard domains (e.g., `*.example.com`)
+- Gracefully continues if rule deletion fails
+- Comprehensive logging for debugging

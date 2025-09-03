@@ -27,9 +27,12 @@ export default defineEventHandler(async (event) => {
   // let's roll
 
   try {
+    console.log(`Processing unblock request for ${domain} on profile ${profile} (${profileId})`)
     const response = await unblockDomain({ domain, profileId, permanent }, useRuntimeConfig(event).ctrldApiKey)
+    console.log(`Successfully created override for ${domain}`)
     return ok(event, { message: "Override created successfully", data: response })
   } catch (err: unknown) {
+    console.error(`Failed to create override for ${domain}:`, err)
     return error(event, {}, `Failed to create override: ${err instanceof Error ? err.message : "Unknown error"}`, 500)
   }
 
