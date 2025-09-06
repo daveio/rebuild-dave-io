@@ -32,6 +32,4 @@ export default defineEventHandler(async (event) => {
   } catch (err: unknown) {
     return error(event, {}, `Failed to create override: ${err instanceof Error ? err.message : "Unknown error"}`, 500)
   }
-
-  return error(event, {}, "Something went comically wrong", 500)
 })

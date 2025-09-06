@@ -7,6 +7,24 @@ export interface UnblockRequest {
   permanent: boolean
 }
 
+export interface DeleteCustomRuleResponse {
+  body: [] // always an empty array it seems
+  success: boolean
+  message: string
+}
+
+function normaliseDomain(domain: string): string {
+  // Remove www prefix
+  if (domain.startsWith("www.")) {
+    domain = domain.slice(4)
+  }
+  // Remove trailing slash
+  if (domain.endsWith("/")) {
+    domain = domain.slice(0, -1)
+  }
+  return domain
+}
+
 export async function unblockDomain(request: UnblockRequest, apiKey: string) {
   let expiry: number = 0
 
@@ -17,14 +35,18 @@ export async function unblockDomain(request: UnblockRequest, apiKey: string) {
   const body: { do: 1; status: 1; hostnames: string[]; ttl?: number } = {
     do: 1,
     status: 1,
-    hostnames: [request.domain],
+    hostnames: [normaliseDomain(request.domain)],
   }
 
   if (!request.permanent) {
     body.ttl = expiry
   }
 
-  // TODO: expired unblocks don't get cleaned up, so we'll need to check for them before we write a new unblock. We can also avoid the double-block issue this way.
+  if (!(await ensureRuleDeleted(request, apiKey))) {
+    console.error(
+      `Failed to ensure deletion of existing override for ${request.domain} on profile ${request.profileId}, proceeding anyway...`,
+    )
+  }
 
   return await $fetch(`https://api.controld.com/profiles/${request.profileId}/rules`, {
     method: "POST",
@@ -35,6 +57,20 @@ export async function unblockDomain(request: UnblockRequest, apiKey: string) {
     },
     body,
   })
+}
+
+async function ensureRuleDeleted(request: UnblockRequest, apiKey: string) {
+  const normalisedDomain = normaliseDomain(request.domain)
+
+  const response = (await $fetch(`https://api.controld.com/profiles/${request.profileId}/rules/${normalisedDomain}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+  })) as DeleteCustomRuleResponse // idempotent; succeeds anyway if no deletion
+
+  return response.success
 }
 
 export async function checkDomain(event: H3Event, domain: string) {
