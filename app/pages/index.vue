@@ -11,16 +11,10 @@
       <div
         class="text-center text-xl font-extrabold rainbow-gradient-text mb-4 flex items-center justify-center gap-2 pt-4"
       >
-        <Icon
-          name="i-heroicons-rocket-launch"
-          class="text-orange-400"
-        />
+        <Icon name="i-heroicons-rocket-launch" class="text-orange-400" />
         <span class="max-md:hidden">Weapons-grade DevOps engineer, developer, and tinkerer</span>
         <span class="md:hidden text-sm">Weapons-grade engineer and tinkerer</span>
-        <Icon
-          name="i-heroicons-rocket-launch"
-          class="text-orange-400"
-        />
+        <Icon name="i-heroicons-rocket-launch" class="text-orange-400" />
       </div>
     </div>
     <div class="mb-4">
@@ -42,10 +36,7 @@
           <i class="i-mdi-light-gender-transgender mr-2 text-green w-5 h-5" />
           Pronouns
         </span>
-        <NuxtLink
-          to="/gender"
-          class="link-gender break-all"
-        > they/them (learn more) </NuxtLink>
+        <NuxtLink to="/gender" class="link-gender break-all"> they/them (learn more) </NuxtLink>
       </div>
     </div>
     <div class="mb-4">
@@ -55,164 +46,95 @@
         <!-- Bluesky -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-bluesky"
-              class="mr-2 text-sky font-bold"
-            />
+            <Icon name="i-simple-icons-bluesky" class="mr-2 text-sky font-bold" />
             Bluesky
           </span>
-          <NuxtLink
-            href="/go/bluesky"
-            class="break-all link-url"
-          > dave.io/go/bluesky </NuxtLink>
+          <NuxtLink href="/go/bluesky" class="break-all link-url"> dave.io/go/bluesky </NuxtLink>
         </div>
         <!-- Dreamwidth -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-book-open"
-              class="mr-2 text-green font-bold"
-            />
+            <Icon name="i-heroicons-book-open" class="mr-2 text-green font-bold" />
             Dreamwidth
           </span>
-          <NuxtLink
-            href="/go/dreamwidth"
-            class="break-all link-url"
-          > dave.io/go/dreamwidth </NuxtLink>
+          <NuxtLink href="/go/dreamwidth" class="break-all link-url"> dave.io/go/dreamwidth </NuxtLink>
         </div>
         <!-- Facebook -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-facebook"
-              class="mr-2 text-blue font-bold"
-            />
+            <Icon name="i-simple-icons-facebook" class="mr-2 text-blue font-bold" />
             Facebook
           </span>
-          <NuxtLink
-            href="/go/facebook"
-            class="break-all link-url"
-          > dave.io/go/facebook </NuxtLink>
+          <NuxtLink href="/go/facebook" class="break-all link-url"> dave.io/go/facebook </NuxtLink>
         </div>
         <!-- GitHub -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-github"
-              class="mr-2 text-subtext1 font-bold"
-            />
+            <Icon name="i-simple-icons-github" class="mr-2 text-subtext1 font-bold" />
             GitHub
           </span>
-          <NuxtLink
-            href="/go/github"
-            class="break-all link-url"
-          > dave.io/go/github </NuxtLink>
+          <NuxtLink href="/go/github" class="break-all link-url"> dave.io/go/github </NuxtLink>
         </div>
         <!-- Instagram -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-instagram"
-              class="mr-2 text-pink font-bold"
-            />
+            <Icon name="i-simple-icons-instagram" class="mr-2 text-pink font-bold" />
             Instagram
           </span>
-          <NuxtLink
-            href="/go/instagram"
-            class="break-all link-url"
-          > dave.io/go/instagram </NuxtLink>
+          <NuxtLink href="/go/instagram" class="break-all link-url"> dave.io/go/instagram </NuxtLink>
         </div>
         <!-- LinkedIn -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-linkedin"
-              class="mr-2 text-blue font-bold"
-            />
+            <Icon name="i-simple-icons-linkedin" class="mr-2 text-blue font-bold" />
             LinkedIn
           </span>
-          <NuxtLink
-            href="/go/linkedin"
-            class="break-all link-url"
-          > dave.io/go/linkedin </NuxtLink>
+          <NuxtLink href="/go/linkedin" class="break-all link-url"> dave.io/go/linkedin </NuxtLink>
         </div>
         <!-- Mastodon -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-mastodon"
-              class="mr-2 text-mauve font-bold"
-            />
+            <Icon name="i-simple-icons-mastodon" class="mr-2 text-mauve font-bold" />
             Mastodon
           </span>
-          <NuxtLink
-            href="/go/mastodon"
-            class="break-all link-url"
-          > dave.io/go/mastodon </NuxtLink>
+          <NuxtLink href="/go/mastodon" class="break-all link-url"> dave.io/go/mastodon </NuxtLink>
         </div>
         <!-- Pillowfort -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-chat-bubble-left-ellipsis"
-              class="mr-2 text-lavender font-bold"
-            />
+            <Icon name="i-heroicons-chat-bubble-left-ellipsis" class="mr-2 text-lavender font-bold" />
             Pillowfort
           </span>
-          <NuxtLink
-            href="/go/pillowfort"
-            class="break-all link-url"
-          > dave.io/go/pillowfort </NuxtLink>
+          <NuxtLink href="/go/pillowfort" class="break-all link-url"> dave.io/go/pillowfort </NuxtLink>
         </div>
         <!-- Threads -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-threads"
-              class="mr-2 text-subtext1 font-bold"
-            />
+            <Icon name="i-simple-icons-threads" class="mr-2 text-subtext1 font-bold" />
             Threads
           </span>
-          <NuxtLink
-            href="/go/threads"
-            class="break-all link-url"
-          > dave.io/go/threads </NuxtLink>
+          <NuxtLink href="/go/threads" class="break-all link-url"> dave.io/go/threads </NuxtLink>
         </div>
         <!-- Tumblr -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-tumblr"
-              class="mr-2 text-sapphire font-bold"
-            />
+            <Icon name="i-simple-icons-tumblr" class="mr-2 text-sapphire font-bold" />
             Tumblr
           </span>
-          <NuxtLink
-            href="/go/tumblr"
-            class="break-all link-url"
-          > dave.io/go/tumblr </NuxtLink>
+          <NuxtLink href="/go/tumblr" class="break-all link-url"> dave.io/go/tumblr </NuxtLink>
         </div>
         <!-- YouTube -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-simple-icons-youtube"
-              class="mr-2 text-red font-bold"
-            />
+            <Icon name="i-simple-icons-youtube" class="mr-2 text-red font-bold" />
             YouTube
           </span>
-          <NuxtLink
-            href="/go/youtube"
-            class="break-all link-url"
-          > dave.io/go/youtube </NuxtLink>
+          <NuxtLink href="/go/youtube" class="break-all link-url"> dave.io/go/youtube </NuxtLink>
         </div>
         <!-- Twitter -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-x-mark"
-              class="mr-2 text-subtext0 font-bold"
-            />
+            <Icon name="i-heroicons-x-mark" class="mr-2 text-subtext0 font-bold" />
             Twitter
           </span>
           <span class="text-subtext0">Nope.</span>
@@ -227,16 +149,10 @@
         <!-- API Link -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-cog"
-              class="font-bold mr-2 text-peach"
-            />
+            <Icon name="i-heroicons-cog" class="font-bold mr-2 text-peach" />
             About the API
           </span>
-          <NuxtLink
-            href="/api"
-            class="break-all link-url text-peach"
-          > dave.io/api </NuxtLink>
+          <NuxtLink href="/api" class="break-all link-url text-peach"> dave.io/api </NuxtLink>
         </div>
       </div>
     </div>
@@ -247,98 +163,65 @@
         <!-- CV Link -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-document-text"
-              class="font-bold mr-2 text-blue-400"
-            />
+            <Icon name="i-heroicons-document-text" class="font-bold mr-2 text-blue-400" />
             Check out my CV
           </span>
-          <NuxtLink
-            href="/go/cv"
-            class="break-all link-url"
-          > dave.io/go/cv </NuxtLink>
+          <NuxtLink href="/go/cv" class="break-all link-url"> dave.io/go/cv </NuxtLink>
         </div>
         <!-- Key Link -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-key"
-              class="font-bold mr-2 text-yellow-400"
-            />
+            <Icon name="i-heroicons-key" class="font-bold mr-2 text-yellow-400" />
             <span class="max-md:hidden">Grab my public key</span>
             <span class="md:hidden">My public key</span>
           </span>
-          <NuxtLink
-            href="/go/key"
-            class="break-all link-url"
-          > dave.io/go/key </NuxtLink>
+          <NuxtLink href="/go/key" class="break-all link-url"> dave.io/go/key </NuxtLink>
         </div>
         <!-- TODO Link -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-list-bullet"
-              class="font-bold mr-2 text-green-400"
-            />
+            <Icon name="i-heroicons-list-bullet" class="font-bold mr-2 text-green-400" />
             Give me a TODO
           </span>
-          <NuxtLink
-            href="/go/todo"
-            class="break-all link-url"
-          > dave.io/go/todo </NuxtLink>
+          <NuxtLink href="/go/todo" class="break-all link-url"> dave.io/go/todo </NuxtLink>
         </div>
         <!-- Talk Link -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-microphone"
-              class="font-bold mr-2 text-purple-400"
-            />
+            <Icon name="i-heroicons-microphone" class="font-bold mr-2 text-purple-400" />
             Enjoy this talk
           </span>
-          <NuxtLink
-            href="/go/wat"
-            class="break-all link-url"
-          > dave.io/go/wat </NuxtLink>
+          <NuxtLink href="/go/wat" class="break-all link-url"> dave.io/go/wat </NuxtLink>
         </div>
         <!-- Story Link -->
         <div class="contents">
           <span class="font-medium text-right pr-1 inline-flex justify-end items-center">
-            <Icon
-              name="i-heroicons-book-open"
-              class="font-bold mr-2 text-indigo-400"
-            />
+            <Icon name="i-heroicons-book-open" class="font-bold mr-2 text-indigo-400" />
             Read this story
           </span>
-          <NuxtLink
-            href="/go/blit"
-            class="break-all link-url"
-          > dave.io/go/blit </NuxtLink>
+          <NuxtLink href="/go/blit" class="break-all link-url"> dave.io/go/blit </NuxtLink>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-  import Email from "~/components/shared/Email.vue"
+<script setup lang="ts">
+import Email from "~/components/shared/Email.vue"
 
-  usePageSetup({
-    title: "home"
-  })
+usePageSetup({
+  title: "home"
+})
 
-  definePageMeta({
-    layoutProps: {
-      showHero: true,
-      showCurlCommand: true,
-      useMonospace: true
-    }
-  })
+definePageMeta({
+  layoutProps: {
+    showHero: true,
+    showCurlCommand: true,
+    useMonospace: true
+  }
+})
 
-  onMounted(() => {
-    // Page mounted
-  })
+onMounted(() => {
+  // Page mounted
+})
 </script>

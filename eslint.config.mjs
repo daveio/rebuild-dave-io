@@ -8,6 +8,7 @@ export default defineFlatConfigs(
   },
   withNuxt({
     rules: {
+      "vue/first-attribute-linebreak": "off",
       "vue/html-self-closing": "off"
     }
   })

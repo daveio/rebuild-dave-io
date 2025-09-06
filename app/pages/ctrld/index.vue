@@ -4,11 +4,8 @@
   </div>
 </template>
 
-<script
-  lang="ts"
-  setup
->
-  usePageSetup({
-    title: "ControlD"
-  })
+<script lang="ts" setup>
+usePageSetup({
+  title: "ControlD"
+})
 </script>
