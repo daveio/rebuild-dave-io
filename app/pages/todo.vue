@@ -78,7 +78,8 @@
             <legend class="fieldset-legend">Details <span class="text-red-400">*</span></legend>
             <label class="label" for="description">What should I do? Include links, context, examples. You can
               optionally use
-              <NuxtLink to="https://www.markdownguide.org/cheat-sheet">Markdown <strong><em>(what?)</em></strong>
+              <NuxtLink to="https://www.markdownguide.org/cheat-sheet">Markdown
+                <Icon name="pepicons-pop-question-circle-filled" class="text-red-400" />
               </NuxtLink>
               here.
             </label>
